@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { useEffect } from "react";
 import { string, element } from "prop-types";
@@ -18,7 +19,7 @@ const CodeBlock = ({ content, lang, icon, file }) => {
       </div>
       <pre className="pre">
         <code
-          style={{ fontFamily: `Fira Code` || `Fira Code AF` }}
+          style={{ fontFamily: `Fira Code` }}
           className={`code language-${lang || "jsx"}`}
         >
           {content}

@@ -14,15 +14,15 @@ const BasicButtonPage = () => {
       component={
         <BasicButton
           type="button"
-          width={isDesktop && "20%"}
           label="Basic button"
+          width={isDesktop ? "20%" : "100%"}
           margin="auto auto auto 0"
           bgColor="#22da6b"
           textColor="#030303"
           disabledBgColor="#676767"
           disabledTextColor="#030303cc"
           disabled={false}
-          onClick={() => alert("clicked")}
+          onClick={() => alert("Hey there!")}
         />
       }
       codeBlock={
