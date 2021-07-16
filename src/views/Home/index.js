@@ -11,9 +11,10 @@ const Home = () => (
 
       <SubHeader label="Buttons" />
       <LinkTo label="Basic" path="/basic-button" />
+      <LinkTo label="Icon" path="/icon-button" />
       <LinkTo label="Outline" path="/outline-button" />
       <LinkTo label="Loading" path="/loading-button" />
-      <LinkTo label="Icon" path="/icon-button" />
+      <LinkTo label="Progress" path="/progress-button" />
 
       <SubHeader label="Inputs" />
       <LinkTo label="Text" path="/text-input" />
