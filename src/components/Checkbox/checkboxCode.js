@@ -12,10 +12,13 @@ const Checkbox = ({
 }) => {
   const [checked, setChecked] = useState(false);
 
+  const handleCheck = () => {
+    setChecked(!checked);
+  };
+
   return (
     <input
       type="checkbox"
-      className="checkbox"
       style={{
         appearance: "none",
         width: width || "1.75rem",
@@ -26,14 +29,14 @@ const Checkbox = ({
         alignItems: "center",
         justifyContent: "center",
         transition: "all ease 400ms",
-        borderRadius: radius || "4px",
+        borderRadius: radius || "2px",
         border: border || "#151718 4px solid inset",
         backgroundColor: checked ? bgColor || "#22da6b" : "#9aa0a4",
         boxShadow: shadow || "#030303af 1px 1px 10px",
       }}
       value={checked}
       checked={checked}
-      onChange={() => setChecked(!checked)}
+      onChange={handleCheck}
     />
   );
 };
@@ -49,4 +52,5 @@ Checkbox.propTypes = {
 };
 
 export default Checkbox;
+
 `;

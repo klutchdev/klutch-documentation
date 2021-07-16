@@ -14,7 +14,7 @@ const BasicButtonPage = () => {
       component={
         <BasicButton
           type="button"
-          label="Basic button"
+          label="Say hello!"
           width={isDesktop ? "20%" : "100%"}
           margin="auto auto auto 0"
           bgColor="#22da6b"

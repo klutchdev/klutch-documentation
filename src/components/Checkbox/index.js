@@ -12,6 +12,10 @@ const Checkbox = ({
 }) => {
   const [checked, setChecked] = useState(false);
 
+  const handleCheck = () => {
+    setChecked(!checked);
+  };
+
   return (
     <input
       type="checkbox"
@@ -32,7 +36,7 @@ const Checkbox = ({
       }}
       value={checked}
       checked={checked}
-      onChange={() => setChecked(!checked)}
+      onChange={handleCheck}
     />
   );
 };

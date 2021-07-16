@@ -4,10 +4,14 @@ import { string, number } from "prop-types";
 const MenuToggle = ({ color, width, height }) => {
   const [expanded, setExpanded] = useState(false);
 
+  const handleToggle = () => {
+    setExpanded(!expanded);
+  };
+
   return (
     <button
       aria-expanded={expanded}
-      onClick={() => setExpanded(!expanded)}
+      onClick={handleToggle}
       style={{
         background: `transparent`,
         border: `none`,

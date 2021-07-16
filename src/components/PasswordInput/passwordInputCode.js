@@ -20,17 +20,17 @@ const PasswordInput = ({
   shadow,
   autoComplete,
 }) => {
-  const PasswordinputRef = useRef(null);
+  const passwordInputRef = useRef(null);
   const [val, setVal] = useState("");
+
+  let len = val.length;
 
   const onChange = (e) => {
     setVal(e.target.value);
-  }
+  };
 
   const borderStyle =
-    (val.length > 0 && val.length < 8 && "2px solid red") ||
-    (val.length >= 8 && "2px solid #22da6b") ||
-    "2px solid #3e4244";
+    (len < 8 && "red") || (len >= 8 && "#22da6b") || (len <= 0 && "#3e4244");
 
   return (
     <div
@@ -41,7 +41,7 @@ const PasswordInput = ({
       }}
     >
       <div
-        ref={PasswordinputRef}
+        ref={passwordInputRef}
         style={{
           width: width || "100%",
           height: height || "3rem",
@@ -51,7 +51,7 @@ const PasswordInput = ({
           justifyContent: "space-evenly",
           outline: "none",
           background: "#03030350",
-          border: border || borderStyle,
+          border: border || borderStyle + "2px solid ",
           borderRadius: radius || "6px",
           transition: "all 300ms ease",
           boxShadow: shadow || "1px 1px 6px #030303",

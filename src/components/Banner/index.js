@@ -23,7 +23,11 @@ const TopBanner = ({
 }) => {
   const [dismissed, setDismissed] = useState(false);
 
-  const DismissButton = ({ handleDismiss, bgColor }) => (
+  const handleDismiss = () => {
+    setDismissed(!dismissed);
+  };
+
+  const DismissButton = ({ onClick, bgColor }) => (
     <div
       style={{
         display: `flex`,
@@ -33,7 +37,7 @@ const TopBanner = ({
       }}
     >
       <div
-        onClick={handleDismiss}
+        onClick={onClick}
         style={{
           margin: `auto 0`,
           display: `flex`,
@@ -97,7 +101,7 @@ const TopBanner = ({
           {content}
         </h4>
       </div>
-      <DismissButton handleDismiss={() => setDismissed(!dismissed)} />
+      <DismissButton onClick={handleDismiss} />
     </div>
   );
 };

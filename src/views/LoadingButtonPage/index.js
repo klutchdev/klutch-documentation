@@ -11,14 +11,18 @@ const LoadingButtonPage = () => {
   const [loading, setLoading] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 1024px)");
 
+  const handleLoading = () => {
+    setLoading(!loading);
+  };
+
   return (
     <ComponentTemplate
       title="Loading Button"
       component={
         <LoadingButton
-          width={isDesktop && "25%"}
+          width={isDesktop ? "25%" : "100%"}
           type="button"
-          label="Click me"
+          label="Load stuff"
           margin="auto auto auto 0"
           bgColor="#22da6b"
           textColor="#030303"
@@ -26,7 +30,7 @@ const LoadingButtonPage = () => {
           disabledTextColor="#030303cc"
           disabled={false}
           loading={loading}
-          onClick={() => setLoading(!loading)}
+          onClick={handleLoading}
         />
       }
       codeBlock={
