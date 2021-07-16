@@ -15,7 +15,7 @@ const CodeBlock = ({ content, lang, icon, file }) => {
   return (
     <div className="code-block">
       <div className="filename">
-        {icon || <FaReact size="2rem" className="react" />} <h5>{file}</h5>
+        {icon || <FaReact size="1.5rem" className="react" />} <h5>{file}</h5>
       </div>
       <pre className="pre">
         <code

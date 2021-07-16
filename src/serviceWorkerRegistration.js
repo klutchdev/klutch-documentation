@@ -47,14 +47,13 @@ function registerValidSW(swUrl, config) {
         installingWorker.onstatechange = () => {
           if (installingWorker.state === "installed") {
             if (navigator.serviceWorker.controller) {
-              alert("New update available! Please close the app and restart.");
-              window.location.reload("/");
+              console.log("Updated");
 
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
               }
             } else {
-              // console.log("Content is cached for offline use.");
+              console.log("Content is cached for offline use.");
               if (config && config.onSuccess) {
                 config.onSuccess(registration);
               }

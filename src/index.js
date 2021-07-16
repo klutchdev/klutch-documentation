@@ -3,6 +3,8 @@ import "./index.css";
 import { render } from "react-dom";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+
 const Loading = () => (
   <div
     style={{
@@ -27,3 +29,5 @@ render(
   </StrictMode>,
   document.getElementById("root")
 );
+
+serviceWorkerRegistration.register();
