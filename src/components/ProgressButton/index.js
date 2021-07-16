@@ -83,7 +83,7 @@ const ProgressButton = ({
             width: percent + "%" || "0%",
             top: 0,
             left: 0,
-            background: "linear-gradient(to right, #8eff6f, #47e81a)",
+            background: "linear-gradient(to right, #8eff6f, #64ff56)",
             transition: "width 350ms ease",
           }}
         />
