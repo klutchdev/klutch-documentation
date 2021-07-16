@@ -200,6 +200,7 @@ a:hover {
   margin: 0.25rem auto 0.5rem 0.5rem;
   font-family: "Monsterrat";
   color: var(--pink);
+  background: none;
 }
 
 .rotation {
