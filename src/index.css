@@ -1,6 +1,6 @@
-@import-normalize;
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
 @import url("https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css");
+@import-normalize;
 
 :root {
   --black: #030303;
@@ -38,14 +38,11 @@
   --pink: #ff4088;
   --shadow: var(--black75) 3px 5px 10px;
   --border-radius: 5px;
-  --font-primary: "Montserrat";
+  --font-primary: "Montserrat", sans-serif;
   --code-font: "Fira Code";
   --code-font-variant: "Fira Code VF";
-
   --code-bg: #1f2127;
   --filename: #23262d;
-
-  --button: #22da6b;
   --shadow: #03030350 1px 1px 15px;
   font-size: 1rem;
 }
@@ -69,12 +66,37 @@ html {
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--dark);
-  font-family: var(--font-primary);
+  font-family: "Montserrat";
   height: 100%;
+}
+
+h1 {
+  margin: 1rem auto 1rem 0.5rem;
+  text-align: left;
+  font-size: 2.25rem;
+  color: var(--grey-100);
+  font-family: var(--font-primary);
+}
+
+h3 {
+  margin: 2rem auto 1rem 0.5rem;
+  text-align: left;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--grey-200);
+  font-family: var(--font-primary);
+}
+
+a {
+  margin: 0.25rem auto 0.25rem 0.25rem;
+  text-align: left;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--pink);
+  font-family: var(--font-primary);
 }
 
 .pre {
@@ -128,7 +150,7 @@ body {
   margin: auto;
   padding: 0 0.25rem 0 1rem;
   color: var(--grey-100);
-  font-family: "Fira Code";
+  font-family: var(--code-font);
   font-size: 115%;
   font-weight: 600;
   letter-spacing: 0;
@@ -143,45 +165,6 @@ body {
   margin: auto 1rem auto 0;
   color: #fa8142;
   font-size: 1.5rem;
-}
-
-h1 {
-  margin: 1rem auto 1rem 0.5rem;
-  text-align: left;
-  font-size: 2.25rem;
-  color: var(--grey-100);
-  font-family: var(--font-primary);
-}
-
-h3 {
-  margin: 2rem auto 1rem 0.5rem;
-  text-align: left;
-  font-size: 1.75rem;
-  font-weight: 500;
-  font-family: var(--font-primary);
-  color: var(--grey-200);
-}
-
-a {
-  margin: 0.25rem auto 0.25rem 0.25rem;
-  text-align: left;
-  font-size: 1.25rem;
-  font-weight: 500;
-  font-family: var(--font-primary);
-  color: var(--pink);
-}
-
-hr {
-  color: var(--grey-500);
-  background: var(--grey-500);
-}
-
-.body {
-  margin: auto;
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .button-container {
@@ -200,12 +183,12 @@ hr {
 .flex-column {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 }
 
-.flex-column a {
+.links,
+.links a {
   margin: 0.25rem auto 0.5rem 0.5rem;
-  font-family: var(--font-primary);
+  font-family: "Monsterrat";
   color: var(--pink);
 }
 
@@ -225,13 +208,15 @@ hr {
 @media (min-width: 1024px) {
   h1 {
     font-size: 3rem;
+    font-family: var(--font-primary);
   }
-
   h3 {
     font-size: 2rem;
+    font-family: var(--font-primary);
   }
   a {
     font-size: 1.25 rem;
+    font-family: var(--font-primary);
   }
 
   .pre {
@@ -242,15 +227,6 @@ hr {
     padding: 1rem;
     font-size: 1.25rem;
     overflow-x: hidden;
-  }
-
-  .code-block {
-    display: flex;
-    width: 100%;
-    padding: 0;
-    margin: 1rem auto;
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .back-arrow {

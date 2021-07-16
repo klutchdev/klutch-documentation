@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import LinkTo from "../../components/Link";
 
 const HomePage = () => (
   <div style={{ padding: `1rem` }}>
@@ -7,17 +7,18 @@ const HomePage = () => (
       style={{
         textAlign: `left`,
         margin: `1rem auto 1rem 0.5rem`,
+        fontFamily: `Montserrat`,
       }}
     >
       HOME
     </h1>
-    <hr style={{ color: "#666666" }} color="#666666" />
+    <hr style={{ color: "#666666" }} />
     <div className="flex-column">
-      <h3>Buttons</h3>
-      <Link to="/basic-button">Basic Button</Link>
-      <Link to="/loading-button">Loading Button</Link>
-      <h3>Banners</h3>
-      <Link to="/top-banner">Alert Banner</Link>
+      <h3 style={{ fontFamily: `Montserrat` }}>Buttons</h3>
+      <LinkTo label="Basic Button" path="/basic-button" />
+      <LinkTo label="Loading Button" path="/loading-button" />
+      <h3 style={{ fontFamily: `Montserrat` }}>Banners</h3>
+      <LinkTo label="Alert Banner" path="/top-banner" />
     </div>
   </div>
 );
