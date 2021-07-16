@@ -1,9 +1,10 @@
 import React from "react";
+import { FaHome } from "react-icons/fa";
 
 const Home = () => (
   <div style={{ padding: `1rem` }}>
     <Header label="Home" />
-    <hr style={{ color: "#666666" }} />
+    <hr color="#363636" />
     <div className="flex-column">
       <SubHeader label="Buttons" />
       <LinkTo label="Basic" path="/basic-button" />
@@ -29,15 +30,19 @@ const Home = () => (
 );
 
 const Header = ({ label }) => (
-  <h1
-    style={{
-      textAlign: `left`,
-      margin: `1rem auto 1rem 0.5rem`,
-      fontFamily: `Montserrat`,
-    }}
-  >
-    {label}
-  </h1>
+  <div style={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
+    <FaHome size="1.75rem" color="#fa8142" />
+    <h1
+      style={{
+        textAlign: `left`,
+        margin: `auto auto auto 1rem`,
+        fontFamily: `Montserrat`,
+        fontSize: "1.75rem",
+      }}
+    >
+      {label}
+    </h1>
+  </div>
 );
 
 const SubHeader = ({ label }) => (
