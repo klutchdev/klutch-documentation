@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { string, func, bool, number } from "prop-types";
 
 const BasicButton = ({
   type,
@@ -77,6 +78,31 @@ const BasicButton = ({
       </button>
     </div>
   );
+};
+
+BasicButton.propTypes = {
+  type: string.isRequired,
+  label: string.isRequired,
+  onClick: func,
+  width: string,
+  bgColor: string,
+  disabledBgColor: string,
+  textColor: string,
+  disabled: bool,
+  disabledTextColor: string,
+  margin: string,
+  padding: string,
+  fontFamily: string,
+  height: string,
+  radius: string,
+  border: string,
+  fontSize: string,
+  letterSpacing: string,
+  transition: string,
+  shadow: string,
+  hoverShadow: string,
+  fontWeight: number,
+  textAlign: string,
 };
 
 export default BasicButton;

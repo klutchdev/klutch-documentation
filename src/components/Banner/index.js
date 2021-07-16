@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { string, number } from "prop-types";
 
 const TopBanner = ({
   content,
@@ -97,6 +98,27 @@ const TopBanner = ({
       <DismissButton onClick={() => setDismissed(!dismissed)} />
     </div>
   );
+};
+
+TopBanner.propTypes = {
+  content: string.isRequired,
+  width: string,
+  height: string,
+  margin: string,
+  padding: string,
+  bgColor: string,
+  gradient: string,
+  position: string,
+  top: string,
+  textColor: string,
+  fontSize: string,
+  textAlign: string,
+  fontFamily: string,
+  fontWeight: number,
+  lineHeight: string,
+  letterSpacing: string,
+  transition: string,
+  shadow: string,
 };
 
 export default TopBanner;

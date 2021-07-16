@@ -1,14 +1,12 @@
+import React from "react";
 import hljs from "highlight.js/lib/common";
 import { useEffect } from "react";
-// import { FaJs } from "react-icons/fa";
 
 const CodeBlock = ({ content, lang, icon, file }) => {
   useEffect(() => {
     hljs.highlightAll();
-    return () => {
-      hljs.highlightAll();
-    };
-  }, [lang]);
+    return () => hljs.highlightAll();
+  }, []);
 
   return (
     <div className="code-block">

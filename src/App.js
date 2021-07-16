@@ -1,4 +1,6 @@
 import React, { Suspense, lazy } from "react";
+import "./index.css";
+import "highlight.js/styles/atom-one-dark.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./pages/Home";
 const BannerPage = lazy(() => import("./pages/BannerPage"));

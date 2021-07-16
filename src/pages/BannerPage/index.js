@@ -1,3 +1,4 @@
+import React from "react";
 import ComponentPage from "../../components/ComponentPage";
 import CodeBlock from "../../components/CodeBlock";
 import { FaReact } from "react-icons/fa";

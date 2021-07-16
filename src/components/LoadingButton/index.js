@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { string, func, bool, number } from "prop-types";
 
 const LoadingButton = ({
   type,
@@ -32,21 +33,15 @@ const LoadingButton = ({
   const handleMouseLeave = () => setIsHover(false);
 
   useEffect(() => {
-    const node = loadingButtonRef.current;
+    const node = loadingButtonRef;
 
-    if (node) {
-      node.addEventListener("mouseenter", handleMouseEnter);
-      node.addEventListener("mouseleave", handleMouseLeave);
-      return () => {
-        node.removeEventListener("mouseenter", handleMouseEnter);
-        node.removeEventListener("mouseleave", handleMouseLeave);
-      };
-    }
+    node.addEventListener("mouseenter", handleMouseEnter);
+    node.addEventListener("mouseleave", handleMouseLeave);
     return () => {
       node.removeEventListener("mouseenter", handleMouseEnter);
       node.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [loadingButtonRef]);
+  }, []);
 
   const Loader = () => (
     <div
@@ -92,6 +87,32 @@ const LoadingButton = ({
       </button>
     </div>
   );
+};
+
+LoadingButton.propTypes = {
+  type: string.isRequired,
+  label: string.isRequired,
+  onClick: func,
+  width: string,
+  bgColor: string,
+  disabledBgColor: string,
+  textColor: string,
+  disabled: bool,
+  disabledTextColor: string,
+  margin: string,
+  padding: string,
+  fontFamily: string,
+  height: string,
+  radius: string,
+  border: string,
+  fontSize: string,
+  letterSpacing: string,
+  transition: string,
+  shadow: string,
+  hoverShadow: string,
+  fontWeight: number,
+  textAlign: string,
+  loading: bool.isRequired,
 };
 
 export default LoadingButton;
