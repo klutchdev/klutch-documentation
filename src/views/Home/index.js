@@ -6,24 +6,24 @@ const Home = () => (
     <hr style={{ color: "#666666" }} />
     <div className="flex-column">
       <SubHeader label="Buttons" />
-      <LinkTo label="Basic Button" path="/basic-button" />
-      <LinkTo label="Outline Button" path="/outline-button" />
-      <LinkTo label="Loading Button" path="/loading-button" />
-      <LinkTo label="Icon Button" path="/icon-button" />
+      <LinkTo label="Basic" path="/basic-button" />
+      <LinkTo label="Outline" path="/outline-button" />
+      <LinkTo label="Loading" path="/loading-button" />
+      <LinkTo label="Icon" path="/icon-button" />
 
       <SubHeader label="Alerts" />
       <LinkTo label="Banner" path="/top-banner" />
 
       <SubHeader label="Inputs" />
-      <LinkTo label="Text Input" path="/text-input" />
-      <LinkTo label="Password Input" path="/password-input" />
+      <LinkTo label="Text" path="/text-input" />
+      <LinkTo label="Password" path="/password-input" />
 
       <SubHeader label="Modals" />
-      <LinkTo label="Modal Alert" path="/modal-alert" />
+      <LinkTo label="Alert" path="/modal-alert" />
 
       <SubHeader label="Toggles" />
       <LinkTo label="Checkbox" path="/checkbox" />
-      <LinkTo label="Menu Toggle" path="/menu-toggle" />
+      <LinkTo label="Burger" path="/menu-toggle" />
     </div>
   </div>
 );
