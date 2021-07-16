@@ -22,7 +22,7 @@ const BannerPage = () => (
           content="This is a short dismissable alert"
           gradient="linear-gradient(to bottom right, #22da6b, #25c47c)"
           bgColor="#22da6b"
-          height="3rem"
+          height="4rem"
         />
         <TopBanner
           margin="0.5rem 0"
