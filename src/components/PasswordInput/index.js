@@ -30,7 +30,9 @@ const PasswordInput = ({
   };
 
   const borderStyle =
-    (len < 8 && "red") || (len >= 8 && "#22da6b") || (len <= 0 && "#3e4244");
+    (len < 8 && "red 2px solid") ||
+    (len >= 8 && "#22da6b 2px solid") ||
+    (len <= 0 && "#3e4244 2px solid");
 
   return (
     <div
@@ -51,7 +53,7 @@ const PasswordInput = ({
           justifyContent: "space-evenly",
           outline: "none",
           background: "#03030350",
-          border: border || borderStyle + "2px solid ",
+          border: border || borderStyle,
           borderRadius: radius || "6px",
           transition: "all 300ms ease",
           boxShadow: shadow || "1px 1px 6px #030303",
