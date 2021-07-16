@@ -69,7 +69,7 @@ body {
 h1 {
   margin: 1rem auto 1rem 0.5rem;
   text-align: left;
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: var(--grey-100);
   font-family: var(--font-primary);
 }
@@ -217,11 +217,11 @@ a:hover {
 
 @media (min-width: 1024px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-family: var(--font-primary);
   }
   h3 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-family: var(--font-primary);
   }
   a {

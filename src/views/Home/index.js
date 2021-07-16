@@ -40,6 +40,7 @@ const Home = () => (
       >
         Loading Button
       </a>
+
       <h3 style={{ fontFamily: `Montserrat` }}>Banners</h3>
       <a
         style={{
@@ -53,6 +54,61 @@ const Home = () => (
         href="/top-banner"
       >
         Alert Banner
+      </a>
+      <h3 style={{ fontFamily: `Montserrat` }}>Inputs</h3>
+      <a
+        style={{
+          margin: `0.25rem auto 0.25rem 0.25rem`,
+          textAlign: `left`,
+          fontSize: `1.25rem`,
+          fontWeight: 500,
+          color: `#ff4088`,
+          fontFamily: "Montserrat",
+        }}
+        href="/text-input"
+      >
+        Text Input
+      </a>
+      <a
+        style={{
+          margin: `0.25rem auto 0.25rem 0.25rem`,
+          textAlign: `left`,
+          fontSize: `1.25rem`,
+          fontWeight: 500,
+          color: `#ff4088`,
+          fontFamily: "Montserrat",
+        }}
+        href="/password-input"
+      >
+        Password Input
+      </a>
+
+      <h3 style={{ fontFamily: `Montserrat` }}>Toggles</h3>
+      <a
+        style={{
+          margin: `0.25rem auto 0.25rem 0.25rem`,
+          textAlign: `left`,
+          fontSize: `1.25rem`,
+          fontWeight: 500,
+          color: `#ff4088`,
+          fontFamily: "Montserrat",
+        }}
+        href="/checkbox"
+      >
+        Checkbox
+      </a>
+      <a
+        style={{
+          margin: `0.25rem auto 0.25rem 0.25rem`,
+          textAlign: `left`,
+          fontSize: `1.25rem`,
+          fontWeight: 500,
+          color: `#ff4088`,
+          fontFamily: "Montserrat",
+        }}
+        href="/menu-toggle"
+      >
+        Menu Toggle
       </a>
     </div>
   </div>
