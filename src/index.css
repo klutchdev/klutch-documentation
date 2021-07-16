@@ -1,7 +1,6 @@
-/* Tip: If you see an "Unknown at rule @import-normalize css(unknownAtRules)"
-warning in VSCode,change the css.lint.unknownAtRules setting to ignore. */
 @import-normalize;
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css");
 
 :root {
   --black: #030303;
@@ -12,7 +11,7 @@ warning in VSCode,change the css.lint.unknownAtRules setting to ignore. */
   --black50: #03030385;
   --black25: #03030350;
   --black10: #03030320;
-  --dark: #171819;
+  --dark: #12181b;
   --grey-950: #151718;
   --grey-900: #1d2021;
   --grey-850: #222325;
@@ -35,11 +34,19 @@ warning in VSCode,change the css.lint.unknownAtRules setting to ignore. */
   --green: #09c372;
   --light-green: #22da6b;
   --purple: hsl(265, 50%, 60%);
-  --yellow: hsl(48, 100%, 67%);
+  --yellow: hsl(53, 100%, 60%);
   --pink: #ff4088;
   --shadow: var(--black75) 3px 5px 10px;
   --border-radius: 5px;
-  --font-primary: "Noto Sans";
+  --font-primary: "Montserrat";
+  --code-font: "Fira Code";
+  --code-font-variant: "Fira Code VF";
+
+  --code-bg: #1f2127;
+  --filename: #23262d;
+
+  --button: #22da6b;
+  --shadow: #03030350 1px 1px 15px;
   font-size: 1rem;
 }
 
@@ -65,16 +72,107 @@ body {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--grey-900);
+  background-color: var(--dark);
   font-family: var(--font-primary);
   height: 100%;
+}
+
+.pre {
+  display: flex;
+  padding: 0 0.5rem;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.code {
+  width: 100%;
+  padding: 1rem 1rem 2rem 1rem;
+  margin: 0 auto 0.5rem auto;
+  font-family: var(--code-font);
+  font-size: 80%;
+  font-weight: 500;
+  line-height: 150%;
+  overflow-wrap: normal;
+  border-radius: 3px;
+  border-top-left-radius: 0;
+  box-shadow: 2px 2px 16px #03030390;
+  background: var(--code-bg);
+  overflow-x: scroll;
+}
+
+.code-block {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  margin: 1rem auto;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.filename {
+  width: auto;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  margin: 0.25rem auto 0 0.5rem;
+  background: var(--filename);
+  border-radius: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  box-shadow: 1px 1px 12px #030303aa;
+}
+
+.filename h5 {
+  margin: auto;
+  padding: 0 0.25rem 0 1rem;
+  color: var(--grey-100);
+  font-family: "Fira Code";
+  font-size: 115%;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.react {
+  color: var(--light-blue);
+  margin: auto;
+}
+
+.back-arrow {
+  margin: auto 1rem auto 0;
+  color: #fa8142;
+  font-size: 1.5rem;
 }
 
 h1 {
   margin: auto auto auto 0;
   text-align: left;
-  font-size: 4rem;
-  color: var(--grey-400);
+  font-size: 2.25rem;
+  color: var(--grey-100);
+}
+
+h3 {
+  margin: 2rem auto 1rem 0.5rem;
+  text-align: left;
+  font-size: 1.75rem;
+  font-weight: 500;
+  font-family: "Montserrat";
+  color: var(--grey-200);
+}
+
+a {
+  margin: 0.25rem auto 0.25rem 0.25rem;
+  text-align: left;
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: "Montserrat";
+  color: var(--pink);
+}
+
+hr {
+  color: var(--grey-500);
+  background: var(--grey-500);
 }
 
 .header {
@@ -98,71 +196,69 @@ h1 {
   justify-content: center;
 }
 
-.tags {
-  margin: 2rem auto;
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.tag {
-  margin: auto 1.5rem auto 0;
-  padding: 0 2rem;
-  height: 3rem;
-  width: auto;
+.button-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--border-radius);
-  font-size: 1.75rem;
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--black);
-  font-family: var(--font-primary);
-  box-shadow: var(--shadow);
-  transition: all 350ms ease;
+  width: 100%;
 }
 
-.tag-fireship {
-  background-color: var(--orange);
-}
-
-.tag-react {
-  background-color: var(--light-blue);
-}
-
-.tag-firebase {
-  background-color: var(--yellow);
-}
-
-.tag-css {
-  background-color: var(--pink);
-}
-
-.npm-command {
-  margin: auto;
-  padding: 0.25rem 0.5rem 0 0.5rem;
-  height: 3rem;
-  width: 50%;
+.flex-column {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  border-radius: var(--border-radius);
-  font-size: 1.15rem;
-  font-family: monospace;
-  font-weight: 500;
-  color: var(--grey-200);
-  background-color: var(--grey-950);
-  box-shadow: var(--shadow);
-  vertical-align: middle;
-  transition: all 500ms ease;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.npm-cra {
-  color: var(--light-green);
+.flex-column a {
+  margin: 0.25rem auto 0.5rem 0.5rem;
+  color: var(--pink);
 }
 
-.npm-template {
-  color: var(--orange);
+.rotation {
+  animation: rotation 1.2s linear infinite;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+  a {
+    font-size: 1.25 rem;
+  }
+
+  .pre {
+    padding: 0 0.5rem;
+  }
+
+  .code {
+    padding: 1rem;
+    font-size: 1.25rem;
+    overflow-x: hidden;
+  }
+
+  .code-block {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 1rem auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .back-arrow {
+    font-size: 2rem;
+  }
 }

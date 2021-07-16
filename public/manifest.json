@@ -1,7 +1,7 @@
 {
-  "name": "Fireship CRA",
-  "short_name": "Fireship CRA",
-  "description": "Build and ship 🔥 your app ⚡ faster",
+  "name": "Klutch Components",
+  "short_name": "Klutch Components",
+  "description": "Component documentation for Klutch",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#454e56",
