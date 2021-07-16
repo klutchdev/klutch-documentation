@@ -10,8 +10,8 @@ const Home = () => (
       <LinkTo label="Banner" path="/top-banner" />
 
       <SubHeader label="Buttons" />
-      <LinkTo label="Basic" path="/basic-button" />
       <LinkTo label="Icon" path="/icon-button" />
+      <LinkTo label="Basic" path="/basic-button" />
       <LinkTo label="Outline" path="/outline-button" />
       <LinkTo label="Loading" path="/loading-button" />
       <LinkTo label="Progress" path="/progress-button" />
