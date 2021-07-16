@@ -6,14 +6,14 @@ const Home = () => (
     <Header label="Home" />
     <hr color="#363636" />
     <div className="flex-column">
+      <SubHeader label="Alerts" />
+      <LinkTo label="Banner" path="/top-banner" />
+
       <SubHeader label="Buttons" />
       <LinkTo label="Basic" path="/basic-button" />
       <LinkTo label="Outline" path="/outline-button" />
       <LinkTo label="Loading" path="/loading-button" />
       <LinkTo label="Icon" path="/icon-button" />
-
-      <SubHeader label="Alerts" />
-      <LinkTo label="Banner" path="/top-banner" />
 
       <SubHeader label="Inputs" />
       <LinkTo label="Text" path="/text-input" />
@@ -42,17 +42,28 @@ const Header = ({ label }) => (
     >
       {label}
     </h1>
+    <p
+      style={{
+        color: "#fa8142",
+        fontFamily: `Montserrat`,
+        margin: "auto 0.5rem auto auto",
+        fontWeight: 600,
+        fontSize: "100%",
+      }}
+    >
+      0.1.3
+    </p>
   </div>
 );
 
 const SubHeader = ({ label }) => (
-  <h3 style={{ fontFamily: `Montserrat` }}>{label}</h3>
+  <h3 style={{ fontFamily: `Montserrat`, padding: "0 0.25rem" }}> {label}</h3>
 );
 
 const LinkTo = ({ label, path }) => (
   <a
     style={{
-      margin: `0.25rem auto 0.25rem 0.25rem`,
+      margin: `0.25rem auto 0.25rem 0.5rem`,
       textAlign: `left`,
       fontSize: `1.25rem`,
       fontWeight: 500,
