@@ -36,8 +36,8 @@ const BannerPage = () => (
           content="This is a centered dismissable alert"
           gradient="linear-gradient(to bottom right, #ff4444, #ff224a)"
           bgColor="#ff3535"
-          height="4rem"
-          width="60%"
+          height="5rem"
+          width="75%"
         />
       </div>
     }
