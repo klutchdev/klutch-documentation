@@ -33,7 +33,7 @@ const TopBanner = ({
         display: `flex`,
         alignContents: `center`,
         justifyContent: `center`,
-        width: `1.5rem`,
+        width: `2rem`,
       }}
     >
       <div
@@ -44,14 +44,14 @@ const TopBanner = ({
           alignContents: `center`,
           justifyContent: `center`,
           width: `3rem`,
-          backgroundColor: bgColor || "#22da6b",
-          filter: `brightness(0.85)`,
+          backgroundColor: bgColor,
+          filter: `brightness(0.8)`,
           height: `auto`,
           borderRadius: `500px`,
         }}
       >
         <svg
-          style={{ margin: `auto`, height: `1.5rem`, width: `1.5rem` }}
+          style={{ margin: `auto`, height: `2rem`, width: `2rem` }}
           fill="currentColor"
           color={textColor || "#030303"}
           viewBox="0 0 16 16"
@@ -66,15 +66,16 @@ const TopBanner = ({
     <div
       style={{
         position: position || "relative",
-        display: dismissed ? `none` : `flex`,
-        top: position && top ? top : "",
+        display: dismissed ? "none" : "flex",
+        top: position && top ? top : 0,
         width: width || "100%",
         height: height || "4rem",
         margin: margin || 0,
+        borderRadius: "2px",
         padding: padding || "0.5rem 1rem 0.5rem 1rem",
         background: gradient || bgColor || "#22da6b",
         boxShadow: shadow || "#030303 2px 2px 20px",
-        transition: transition || "all 250ms ease",
+        transition: transition || "all 300ms ease",
       }}
     >
       <div
@@ -101,7 +102,7 @@ const TopBanner = ({
           {content}
         </h4>
       </div>
-      <DismissButton onClick={handleDismiss} />
+      <DismissButton onClick={handleDismiss} bgColor={bgColor} />
     </div>
   );
 };

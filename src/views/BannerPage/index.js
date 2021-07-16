@@ -9,11 +9,37 @@ const BannerPage = () => (
   <ComponentTemplate
     title="Banner"
     component={
-      <TopBanner
-        content="This is a dismissable alert banner"
-        gradient="linear-gradient(to bottom right, #22da6b, #25c47c)"
-        height="6rem"
-      />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "100%",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <TopBanner
+          margin="0.5rem 0"
+          content="This is a short dismissable alert"
+          gradient="linear-gradient(to bottom right, #22da6b, #25c47c)"
+          bgColor="#22da6b"
+          height="3rem"
+        />
+        <TopBanner
+          margin="0.5rem 0"
+          content="This is a tall dismissable alert"
+          gradient="linear-gradient(to bottom right, #fff835, #d7b119)"
+          bgColor="#fff835"
+          height="8rem"
+        />
+        <TopBanner
+          margin="0.5rem auto"
+          content="This is a centered dismissable alert"
+          gradient="linear-gradient(to bottom right, #ff4444, #ff224a)"
+          bgColor="#ff3535"
+          height="4rem"
+          width="60%"
+        />
+      </div>
     }
     codeBlock={
       <CodeBlock
