@@ -37,7 +37,7 @@ const LoadingButtonPage = () => {
         <CodeBlock
           lang="jsx"
           content={loadingButtonCode}
-          icon={<FaReact size="2rem" className="react" />}
+          icon={<FaReact size="1.75rem" className="react" />}
           file="LoadingButton.jsx"
         />
       }

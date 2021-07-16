@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import ComponentTemplate from "../../components/ComponentTemplate";
-import { bannerCode } from "../../components/Banner/bannerCode";
 import CodeBlock from "../../components/CodeBlock";
 import { FaReact } from "react-icons/fa";
 import ModalAlert from "../../components/ModalAlert";
 import BasicButton from "../../components/BasicButton";
 import useMediaQuery from "../../hooks/useMedia";
+import { modalAlertCode } from "../../components/ModalAlert/modalAlertCode";
 
 const ModalAlertPage = () => {
   const [open, setOpen] = useState(false);
@@ -49,9 +49,9 @@ const ModalAlertPage = () => {
         ) : (
           <CodeBlock
             lang="jsx"
-            content={bannerCode}
-            icon={<FaReact size="2rem" className="react" />}
-            file="AlertBanner.jsx"
+            content={modalAlertCode}
+            icon={<FaReact size="1.75rem" className="react" />}
+            file="ModalALert.jsx"
           />
         )
       }

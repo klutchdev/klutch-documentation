@@ -45,7 +45,7 @@ const BannerPage = () => (
       <CodeBlock
         lang="jsx"
         content={bannerCode}
-        icon={<FaReact size="2rem" className="react" />}
+        icon={<FaReact size="1.75rem" className="react" />}
         file="AlertBanner.jsx"
       />
     }

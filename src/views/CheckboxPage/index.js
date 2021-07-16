@@ -13,7 +13,7 @@ const CheckboxPage = () => (
       <CodeBlock
         lang="jsx"
         content={checkboxCode}
-        icon={<FaReact size="2rem" className="react" />}
+        icon={<FaReact size="1.75rem" className="react" />}
         file="Checkbox.jsx"
       />
     }

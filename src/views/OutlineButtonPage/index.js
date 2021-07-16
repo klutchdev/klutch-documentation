@@ -29,7 +29,7 @@ const OutlineButtonPage = () => {
         <CodeBlock
           lang="jsx"
           content={outlineButtonCode}
-          icon={<FaReact size="2rem" className="react" />}
+          icon={<FaReact size="1.75rem" className="react" />}
           file="OutlineButton.jsx"
         />
       }

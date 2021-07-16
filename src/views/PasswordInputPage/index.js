@@ -22,7 +22,7 @@ const PasswordInputPage = () => {
         <CodeBlock
           lang="jsx"
           content={passwordInputCode}
-          icon={<FaReact size="2rem" className="react" />}
+          icon={<FaReact size="1.75rem" className="react" />}
           file="Input.jsx"
         />
       }

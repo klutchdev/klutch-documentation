@@ -13,7 +13,7 @@ const MenuTogglePage = () => (
       <CodeBlock
         lang="jsx"
         content={menuToggleCode}
-        icon={<FaReact size="2rem" className="react" />}
+        icon={<FaReact size="1.75rem" className="react" />}
         file="MenuToggle.jsx"
       />
     }

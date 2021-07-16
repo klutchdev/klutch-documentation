@@ -52,7 +52,7 @@ const BasicButtonPage = () => {
         <CodeBlock
           lang="jsx"
           content={basicButtonCode}
-          icon={<FaReact size="2rem" className="react" />}
+          icon={<FaReact size="1.75rem" className="react" />}
           file="BasicButton.jsx"
         />
       }

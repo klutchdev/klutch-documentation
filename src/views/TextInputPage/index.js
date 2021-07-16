@@ -22,7 +22,7 @@ const TextInputPage = () => {
         <CodeBlock
           lang="jsx"
           content={textInputCode}
-          icon={<FaReact size="2rem" className="react" />}
+          icon={<FaReact size="1.75rem" className="react" />}
           file="TextInput.jsx"
         />
       }
