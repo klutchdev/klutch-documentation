@@ -9,7 +9,10 @@ import { modalAlertCode } from "../../components/ModalAlert/modalAlertCode";
 
 const ModalAlertPage = () => {
   const [open, setOpen] = useState(false);
-  const isDesktop = useMediaQuery("(min-width: 720px)");
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isLandscape = useMediaQuery(
+    "(min-width: 480px) and (max-height: 480px)"
+  );
 
   return (
     <ComponentTemplate
@@ -26,7 +29,6 @@ const ModalAlertPage = () => {
           <BasicButton
             type="button"
             label="Open Modal"
-            width={isDesktop ? "20%" : "100%"}
             margin="auto auto 1rem 0"
             bgColor="#22da6b"
             textColor="#030303"
@@ -42,9 +44,11 @@ const ModalAlertPage = () => {
           <ModalAlert
             handleClose={() => setOpen(false)}
             text="Modal Alert!"
+            width={isDesktop ? "40%" : isLandscape ? "60%" : "95%"}
+            height={isLandscape ? "75vh" : "25vh"}
             textColor="#e562ff"
             bodyText="This is a basic modal window"
-            width={isDesktop ? "calc(25vw)" : "calc(95vw)"}
+            // width={isDesktop ? "calc(25vw)" : "calc(95vw)"}
           />
         ) : (
           <CodeBlock
