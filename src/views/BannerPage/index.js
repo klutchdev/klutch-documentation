@@ -7,7 +7,7 @@ import { FaReact } from "react-icons/fa";
 
 const BannerPage = () => (
   <ComponentTemplate
-    title="Alert Banner"
+    title="Banner"
     component={
       <TopBanner
         content="This is a dismissable alert banner"

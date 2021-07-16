@@ -10,7 +10,7 @@ const BasicButtonPage = () => {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   return (
     <ComponentTemplate
-      title="Basic button"
+      title="Button"
       component={
         <BasicButton
           type="button"

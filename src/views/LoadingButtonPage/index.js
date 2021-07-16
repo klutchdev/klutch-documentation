@@ -13,7 +13,7 @@ const LoadingButtonPage = () => {
 
   return (
     <ComponentTemplate
-      title="Loading button"
+      title="Loading Button"
       component={
         <LoadingButton
           width={isDesktop && "25%"}
