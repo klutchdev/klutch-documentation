@@ -33,15 +33,19 @@ const LoadingButton = ({
   const handleMouseLeave = () => setIsHover(false);
 
   useEffect(() => {
-    const node = loadingButtonRef;
-
-    node.addEventListener("mouseenter", handleMouseEnter);
-    node.addEventListener("mouseleave", handleMouseLeave);
-    return () => {
-      node.removeEventListener("mouseenter", handleMouseEnter);
-      node.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
+    const node = loadingButtonRef.current;
+    if (loading) {
+      return;
+    }
+    if (node & !loading) {
+      node.addEventListener("mouseenter", handleMouseEnter);
+      node.addEventListener("mouseleave", handleMouseLeave);
+      return () => {
+        node.removeEventListener("mouseenter", handleMouseEnter);
+        node.removeEventListener("mouseleave", handleMouseLeave);
+      };
+    }
+  }, [loading]);
 
   const Loader = () => (
     <div

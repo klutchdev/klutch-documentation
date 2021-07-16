@@ -32,14 +32,16 @@ const BasicButton = ({
   const handleMouseLeave = () => setIsHover(false);
 
   useEffect(() => {
-    const node = buttonRef;
+    const node = buttonRef.current;
 
-    node.addEventListener("mouseenter", handleMouseEnter);
-    node.addEventListener("mouseleave", handleMouseLeave);
-    return () => {
-      node.removeEventListener("mouseenter", handleMouseEnter);
-      node.removeEventListener("mouseleave", handleMouseLeave);
-    };
+    if (node) {
+      node.addEventListener("mouseenter", handleMouseEnter);
+      node.addEventListener("mouseleave", handleMouseLeave);
+      return () => {
+        node.removeEventListener("mouseenter", handleMouseEnter);
+        node.removeEventListener("mouseleave", handleMouseLeave);
+      };
+    }
   }, []);
 
   return (
