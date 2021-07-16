@@ -1,6 +1,6 @@
 import React from "react";
 
-const HomePage = () => (
+const Home = () => (
   <div style={{ padding: `1rem` }}>
     <h1
       style={{
@@ -58,4 +58,4 @@ const HomePage = () => (
   </div>
 );
 
-export default HomePage;
+export default Home;

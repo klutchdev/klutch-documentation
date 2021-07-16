@@ -1,44 +1,40 @@
 import React from "react";
-import ComponentPage from "../../components/ComponentPage";
-import LoadingButton from "../../components/LoadingButton";
-import { loadingButtonCode } from "../../components/LoadingButton/loadingButtonCode";
+import ComponentTemplate from "../../components/ComponentTemplate";
+import BasicButton from "../../components/BasicButton";
+import { basicButtonCode } from "../../components/BasicButton/basicButtonCode";
 import CodeBlock from "../../components/CodeBlock";
 import { FaReact } from "react-icons/fa";
-import { useState } from "react";
 import useMediaQuery from "../../hooks/useMedia";
 
-const LoadingButtonPage = () => {
-  const [loading, setLoading] = useState(false);
+const BasicButtonPage = () => {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
-
   return (
-    <ComponentPage
-      title="Loading button"
+    <ComponentTemplate
+      title="Basic button"
       component={
-        <LoadingButton
-          width={isDesktop && "25%"}
+        <BasicButton
           type="button"
-          label="Loading button"
+          width={isDesktop && "20%"}
+          label="Basic button"
           margin="auto auto auto 0"
           bgColor="#22da6b"
           textColor="#030303"
           disabledBgColor="#676767"
           disabledTextColor="#030303cc"
           disabled={false}
-          loading={loading}
-          onClick={() => setLoading(!loading)}
+          onClick={() => alert("clicked")}
         />
       }
       codeBlock={
         <CodeBlock
           lang="jsx"
-          content={loadingButtonCode}
+          content={basicButtonCode}
           icon={<FaReact size="2rem" className="react" />}
-          file="LoadingButton.jsx"
+          file="BasicButton.jsx"
         />
       }
     />
   );
 };
 
-export default LoadingButtonPage;
+export default BasicButtonPage;

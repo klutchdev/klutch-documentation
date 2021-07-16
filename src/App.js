@@ -1,31 +1,19 @@
-import React, { Suspense, lazy } from "react";
-import { Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-const BannerPage = lazy(() => import("./pages/BannerPage"));
-const BasicButtonPage = lazy(() => import("./pages/BasicButtonPage"));
-const LoadingButtonPage = lazy(() => import("./pages/LoadingButtonPage"));
+import React, { lazy } from "react";
+import { Route, Switch } from "react-router-dom";
+import Home from "./views/Home";
+const BannerPage = lazy(() => import("./views/BannerPage"));
+const BasicButtonPage = lazy(() => import("./views/BasicButtonPage"));
+const LoadingButtonPage = lazy(() => import("./views/LoadingButtonPage"));
 
 const App = () => (
-  <Suspense fallback={<Loading />}>
+  <Switch>
     <Route component={LoadingButtonPage} exact path="/loading-button" />
     <Route component={BasicButtonPage} exact path="/basic-button" />
     <Route component={BannerPage} exact path="/top-banner" />
-    <Route component={HomePage} path="/" />
-  </Suspense>
-);
-
-const Loading = () => (
-  <div
-    style={{
-      display: `flex`,
-      alignItems: `center`,
-      justifyContent: `center`,
-      height: `100vh`,
-      width: `100vw`,
-    }}
-  >
-    <h1 style={{ margin: `auto` }}>Loading...</h1>
-  </div>
+    <Route path="/">
+      <Home />
+    </Route>
+  </Switch>
 );
 
 export default App;
