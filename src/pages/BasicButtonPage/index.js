@@ -30,7 +30,7 @@ const BasicButtonPage = () => {
           lang="jsx"
           content={basicButtonCode}
           icon={<FaReact size="2rem" className="react" />}
-          file="Button.jsx"
+          file="BasicButton.jsx"
         />
       }
     />

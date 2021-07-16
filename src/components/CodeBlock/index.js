@@ -1,6 +1,9 @@
 import React from "react";
-import hljs from "highlight.js/lib/common";
 import { useEffect } from "react";
+import { string, element } from "prop-types";
+import hljs from "highlight.js/lib/common";
+import "highlight.js/styles/atom-one-dark.css";
+import { FaReact } from "react-icons/fa";
 
 const CodeBlock = ({ content, lang, icon, file }) => {
   useEffect(() => {
@@ -11,13 +14,25 @@ const CodeBlock = ({ content, lang, icon, file }) => {
   return (
     <div className="code-block">
       <div className="filename">
-        {icon} <h5>{file}</h5>
+        {icon || <FaReact size="2rem" className="react" />} <h5>{file}</h5>
       </div>
       <pre className="pre">
-        <code className={`code language-${lang}`}>{content}</code>
+        <code
+          style={{ fontFamily: `Fira Code` || `Fira Code AF` }}
+          className={`code language-${lang || "jsx"}`}
+        >
+          {content}
+        </code>
       </pre>
     </div>
   );
+};
+
+CodeBlock.propTypes = {
+  content: string.isRequired,
+  lang: string.isRequired,
+  icon: element.isRequired,
+  file: string.isRequired,
 };
 
 export default CodeBlock;

@@ -19,6 +19,7 @@ const TopBanner = ({
   gradient,
   shadow,
   width,
+  height,
 }) => {
   const [dismissed, setDismissed] = useState(false);
 
@@ -64,6 +65,7 @@ const TopBanner = ({
         display: dismissed ? `none` : `flex`,
         top: position && top ? top : "",
         width: width || "100%",
+        height: height || "4rem",
         margin: margin || 0,
         padding: padding || "0.5rem 1rem 0.5rem 1rem",
         background: gradient || bgColor || "#22da6b",

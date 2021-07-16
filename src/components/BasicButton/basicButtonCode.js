@@ -1,4 +1,5 @@
-export const basicButtonCode = `import { useEffect, useRef, useState } from "react";
+export const basicButtonCode = `import React, { useEffect, useRef, useState } from "react";
+import { string, func, bool, number } from "prop-types";
 
 const BasicButton = ({
   type,
@@ -31,21 +32,15 @@ const BasicButton = ({
   const handleMouseLeave = () => setIsHover(false);
 
   useEffect(() => {
-    const node = buttonRef.current;
+    const node = buttonRef;
 
-    if (node) {
-      node.addEventListener("mouseenter", handleMouseEnter);
-      node.addEventListener("mouseleave", handleMouseLeave);
-      return () => {
-        node.removeEventListener("mouseenter", handleMouseEnter);
-        node.removeEventListener("mouseleave", handleMouseLeave);
-      };
-    }
+    node.addEventListener("mouseenter", handleMouseEnter);
+    node.addEventListener("mouseleave", handleMouseLeave);
     return () => {
       node.removeEventListener("mouseenter", handleMouseEnter);
       node.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [buttonRef]);
+  }, []);
 
   return (
     <div className="button-container">
@@ -77,6 +72,31 @@ const BasicButton = ({
       </button>
     </div>
   );
+};
+
+BasicButton.propTypes = {
+  type: string.isRequired,
+  label: string.isRequired,
+  onClick: func,
+  width: string,
+  bgColor: string,
+  disabledBgColor: string,
+  textColor: string,
+  disabled: bool,
+  disabledTextColor: string,
+  margin: string,
+  padding: string,
+  fontFamily: string,
+  height: string,
+  radius: string,
+  border: string,
+  fontSize: string,
+  letterSpacing: string,
+  transition: string,
+  shadow: string,
+  hoverShadow: string,
+  fontWeight: number,
+  textAlign: string,
 };
 
 export default BasicButton;

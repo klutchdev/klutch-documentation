@@ -42,11 +42,7 @@ const BasicButton = ({
         node.removeEventListener("mouseleave", handleMouseLeave);
       };
     }
-    return () => {
-      node.removeEventListener("mouseenter", handleMouseEnter);
-      node.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, [buttonRef]);
+  }, []);
 
   return (
     <div className="button-container">
@@ -54,6 +50,7 @@ const BasicButton = ({
         ref={buttonRef}
         onClick={onClick}
         type={type || "button"}
+        disabled={disabled || false}
         style={{
           width: width || `auto`,
           height: height || `3rem`,
@@ -72,7 +69,6 @@ const BasicButton = ({
           transition: transition || `all 250ms ease`,
           boxShadow: isHover ? hoverShadow : shadow,
         }}
-        disabled={disabled || false}
       >
         {label}
       </button>
