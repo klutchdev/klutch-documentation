@@ -50,25 +50,25 @@ const BasicButton = ({
         ref={buttonRef}
         onClick={onClick}
         type={type || "button"}
+        disabled={disabled || false}
         style={{
           width: width || 'auto',
           height: height || '3rem',
           padding: padding || '0 1rem',
-          margin: margin || '0.5rem auto',
+          margin: margin || '1rem auto',
           background: disabled ? disabledBgColor : bgColor,
           color: disabled ? disabledTextColor : textColor,
           border: border || 'none',
           borderRadius: radius || '4px',
           textAlign: textAlign || 'center',
           fontWeight: fontWeight || 700,
-          fontSize: fontSize || '1.25rem',
+          fontSize: fontSize || '1.35rem',
           letterSpacing: letterSpacing || '1.25px',
           fontFamily: fontFamily || '"Montserrat", sans-serif',
           filter: isHover ? ' brightness(1.2)' : ' brightness(1)',
           transition: transition || 'all 250ms ease',
           boxShadow: isHover ? hoverShadow : shadow,
         }}
-        disabled={disabled || false}
       >
         {label}
       </button>

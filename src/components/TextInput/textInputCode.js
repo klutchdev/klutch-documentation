@@ -25,7 +25,7 @@ const TextInput = ({
 
   const onChange = (e) => {
     setVal(e.target.value);
-  }
+  };
 
   return (
     <div

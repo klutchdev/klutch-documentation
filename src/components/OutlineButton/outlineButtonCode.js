@@ -61,15 +61,15 @@ const OutlineButton = ({
           color: disabled ? disabledTextColor : textColor,
           borderStyle: borderStyle || "solid",
           borderColor: borderColor || "#22da6b",
-          borderWidth: isHover ? "3px" : "2px",
+          borderWidth: isHover ? "2.5px" : "2px",
           borderRadius: radius || "4px",
           textAlign: textAlign || "center",
           fontWeight: fontWeight || 700,
-          fontSize: fontSize || "1.25rem",
+          fontSize: fontSize || "1.35rem",
           letterSpacing: letterSpacing || "1.25px",
           fontFamily: fontFamily || '"Montserrat", sans-serif',
           filter: isHover ? " brightness(1.2)" : " brightness(1)",
-          transition: transition || "all 250ms ease",
+          transition: transition || "all 250ms linear",
           boxShadow: isHover ? hoverShadow : shadow,
         }}
       >
@@ -106,5 +106,4 @@ OutlineButton.propTypes = {
 };
 
 export default OutlineButton;
-
 `;

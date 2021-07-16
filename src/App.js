@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import CheckboxPage from "./views/CheckboxPage";
 import Home from "./views/Home";
 import IconButtonPage from "./views/IconButtonPage";
+import ModalAlertPage from "./views/ModalAlertPage";
 import OutlineButtonPage from "./views/OutlineButtonPage";
 const BannerPage = lazy(() => import("./views/BannerPage"));
 const BasicButtonPage = lazy(() => import("./views/BasicButtonPage"));
@@ -17,6 +18,7 @@ const App = () => (
     <Route component={MenuTogglePage} exact path="/menu-toggle" />
     <Route component={BasicButtonPage} exact path="/basic-button" />
     <Route component={IconButtonPage} exact path="/icon-button" />
+    <Route component={ModalAlertPage} exact path="/modal-alert" />
     <Route component={OutlineButtonPage} exact path="/outline-button" />
     <Route component={LoadingButtonPage} exact path="/loading-button" />
     <Route component={PasswordInputPage} exact path="/password-input" />

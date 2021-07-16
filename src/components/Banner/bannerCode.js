@@ -30,28 +30,28 @@ const TopBanner = ({
   const DismissButton = ({ onClick, bgColor }) => (
     <div
       style={{
-        display: "flex",
-        alignContents: "center",
-        justifyContent: "center",
-        width: "1.5rem",
+        display: 'flex',
+        alignContents: 'center',
+        justifyContent: 'center',
+        width: '2rem',
       }}
     >
       <div
         onClick={onClick}
         style={{
-          margin: "auto 0",
-          display: "flex",
-          alignContents: "center",
-          justifyContent: "center",
-          width: "3rem",
-          backgroundColor: bgColor || "#22da6b",
-          filter: "brightness(0.85)",
-          height: "auto",
-          borderRadius: "500px",
+          margin: 'auto 0',
+          display: 'flex',
+          alignContents: 'center',
+          justifyContent: 'center',
+          width: '3rem',
+          backgroundColor: bgColor,
+          filter: 'brightness(0.8)',
+          height: 'auto',
+          borderRadius: '500px',
         }}
       >
         <svg
-          style={{ margin: "auto", height: "1.5rem", width: "1.5rem" }}
+          style={{ margin: 'auto', height: '2rem', width: '2rem' }}
           fill="currentColor"
           color={textColor || "#030303"}
           viewBox="0 0 16 16"
@@ -67,41 +67,42 @@ const TopBanner = ({
       style={{
         position: position || "relative",
         display: dismissed ? "none" : "flex",
-        top: position && top ? top : "",
+        top: position && top ? top : 0,
         width: width || "100%",
         height: height || "4rem",
         margin: margin || 0,
+        borderRadius: "2px",
         padding: padding || "0.5rem 1rem 0.5rem 1rem",
         background: gradient || bgColor || "#22da6b",
         boxShadow: shadow || "#030303 2px 2px 20px",
-        transition: transition || "all 250ms ease",
+        transition: transition || "all 300ms ease",
       }}
     >
       <div
         style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          width: "92%",
-          textAlign: "justify",
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+          width: '92%',
+          textAlign: 'justify',
         }}
       >
         <h4
           style={{
-            margin: margin || "auto",
-            textAlign: textAlign || "left",
-            fontSize: fontSize || "110%",
+            margin: margin || 'auto',
+            textAlign: textAlign || 'left',
+            fontSize: fontSize || '110%',
             fontWeight: fontWeight || 500,
             fontFamily: fontFamily || "Montserrat",
             color: textColor || "#030303",
             letterSpacing: letterSpacing || 0,
-            lineHeight: lineHeight || "1.25rem",
+            lineHeight: lineHeight || '1.25rem',
           }}
         >
           {content}
         </h4>
       </div>
-      <DismissButton onClick={handleDismiss} />
+      <DismissButton onClick={handleDismiss} bgColor={bgColor} />
     </div>
   );
 };

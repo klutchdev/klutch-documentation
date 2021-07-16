@@ -62,7 +62,7 @@ const BasicButton = ({
           borderRadius: radius || `4px`,
           textAlign: textAlign || `center`,
           fontWeight: fontWeight || 700,
-          fontSize: fontSize || `1.25rem`,
+          fontSize: fontSize || `1.35rem`,
           letterSpacing: letterSpacing || `1.25px`,
           fontFamily: fontFamily || `"Montserrat", sans-serif`,
           filter: isHover ? ` brightness(1.2)` : ` brightness(1)`,

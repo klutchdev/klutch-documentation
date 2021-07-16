@@ -18,6 +18,9 @@ const Home = () => (
       <LinkTo label="Text Input" path="/text-input" />
       <LinkTo label="Password Input" path="/password-input" />
 
+      <SubHeader label="Modals" />
+      <LinkTo label="Modal Alert" path="/modal-alert" />
+
       <SubHeader label="Toggles" />
       <LinkTo label="Checkbox" path="/checkbox" />
       <LinkTo label="Menu Toggle" path="/menu-toggle" />
