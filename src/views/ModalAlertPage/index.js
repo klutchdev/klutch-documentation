@@ -9,7 +9,7 @@ import { modalAlertCode } from "../../components/ModalAlert/modalAlertCode";
 
 const ModalAlertPage = () => {
   const [open, setOpen] = useState(false);
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isDesktop = useMediaQuery("(min-width: 720px)");
 
   return (
     <ComponentTemplate
