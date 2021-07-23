@@ -19,6 +19,8 @@ const PasswordInput = ({
   radius,
   shadow,
   autoComplete,
+  isVisible,
+  setIsVisible,
 }) => {
   const passwordInputRef = useRef(null);
   const [val, setVal] = useState("");
@@ -30,9 +32,9 @@ const PasswordInput = ({
   };
 
   const borderStyle =
-    (len > 0 && len < 8 && "red 2px solid") ||
-    (len >= 8 && "#22da6b 2px solid") ||
-    "#3e4244 2px solid";
+    (len > 0 && len < 8 && "red 1px solid") ||
+    (len >= 8 && "#22da6b 1px solid") ||
+    "1px solid #545759";
 
   return (
     <div
@@ -46,7 +48,7 @@ const PasswordInput = ({
         ref={passwordInputRef}
         style={{
           width: width || "100%",
-          height: height || "3rem",
+          height: height || "2.75rem",
           margin: margin || "0.25rem 0 1rem 0",
           display: "flex",
           alignItems: "center",
@@ -54,9 +56,9 @@ const PasswordInput = ({
           outline: "none",
           background: "#03030350",
           border: border || borderStyle,
-          borderRadius: radius || "6px",
+          borderRadius: radius || "4px",
           transition: "all 300ms ease",
-          boxShadow: shadow || "1px 1px 6px #030303",
+          boxShadow: shadow || "1px 1px 10px #03030390",
         }}
       >
         {leftIcon && (
@@ -68,7 +70,7 @@ const PasswordInput = ({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: leftIconColor || "#3e4244",
+              color: val.length >= 8 ? "green" : "#3e4244",
               transition: "all 300ms ease",
             }}
           >
@@ -76,7 +78,7 @@ const PasswordInput = ({
           </div>
         )}
         <input
-          type={type || "text"}
+          type={isVisible ? "text" : "password"}
           value={val || value}
           onChange={onChange}
           onKeyUp={onKeyUp}
@@ -100,6 +102,7 @@ const PasswordInput = ({
         />
         {rightIcon && (
           <div
+            onClick={() => setIsVisible(!isVisible)}
             style={{
               margin: "auto 0 auto auto",
               width: "3rem",

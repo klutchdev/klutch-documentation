@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+
 import { string, func, bool, number } from "prop-types";
 
 const BasicButton = ({
@@ -61,9 +62,9 @@ const BasicButton = ({
           border: border || `none`,
           borderRadius: radius || `4px`,
           textAlign: textAlign || `center`,
-          fontWeight: fontWeight || 700,
-          fontSize: fontSize || `1.35rem`,
-          letterSpacing: letterSpacing || `1.25px`,
+          fontWeight: fontWeight || 600,
+          fontSize: fontSize || `1.5rem`,
+          letterSpacing: letterSpacing || `1px`,
           fontFamily: fontFamily || `"Montserrat", sans-serif`,
           filter: isHover ? ` brightness(1.2)` : ` brightness(1)`,
           transition: transition || `all 250ms ease`,

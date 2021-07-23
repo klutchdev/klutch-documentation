@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { string, func, bool, number } from "prop-types";
+import { motion } from "framer-motion";
 
 const LoadingButton = ({
   type,
@@ -48,7 +49,7 @@ const LoadingButton = ({
   }, [loading]);
 
   const Loader = () => (
-    <div
+    <motion.div
       className="rotation"
       style={{
         margin: "auto",

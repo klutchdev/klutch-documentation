@@ -21,8 +21,8 @@ const Checkbox = ({
       type="checkbox"
       style={{
         appearance: "none",
-        width: width || "1.75rem",
-        height: height || "1.75rem",
+        width: width || "1.5rem",
+        height: height || "1.5rem",
         outline: "none",
         margin: margin || "auto auto auto 0",
         display: "flex",

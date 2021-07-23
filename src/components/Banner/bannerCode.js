@@ -1,5 +1,7 @@
-export const bannerCode = `import React, { useState } from "react";
-import { string, number } from "prop-types";
+export const bannerCode = `import React from "react";
+import { string, number, func } from "prop-types";
+import { motion } from "framer-motion";
+import { basicVariant, textVariant } from "../../animations";
 
 const TopBanner = ({
   content,
@@ -20,13 +22,8 @@ const TopBanner = ({
   shadow,
   width,
   height,
+  handleDismiss,
 }) => {
-  const [dismissed, setDismissed] = useState(false);
-
-  const handleDismiss = () => {
-    setDismissed(!dismissed);
-  };
-
   const DismissButton = ({ onClick, bgColor }) => (
     <div
       style={{
@@ -44,7 +41,7 @@ const TopBanner = ({
           alignContents: 'center',
           justifyContent: 'center',
           width: '3rem',
-          backgroundColor: bgColor,
+          background: bgColor,
           filter: 'brightness(0.8)',
           height: 'auto',
           borderRadius: '500px',
@@ -63,10 +60,15 @@ const TopBanner = ({
   );
 
   return (
-    <div
+    <motion.div
+      positionTransition
+      variants={textVariant}
+      initial={{ opacity: 0, y: 50, scale: 0.3 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.25, transition: { duration: 0.25 } }}
       style={{
         position: position || "relative",
-        display: dismissed ? "none" : "flex",
+        display: "flex",
         top: position && top ? top : 0,
         width: width || "100%",
         height: height || "4rem",
@@ -78,7 +80,7 @@ const TopBanner = ({
         transition: transition || "all 300ms ease",
       }}
     >
-      <div
+      <motion.div
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -87,7 +89,8 @@ const TopBanner = ({
           textAlign: 'justify',
         }}
       >
-        <h4
+        <motion.h4
+          variants={basicVariant}
           style={{
             margin: margin || 'auto',
             textAlign: textAlign || 'left',
@@ -100,10 +103,10 @@ const TopBanner = ({
           }}
         >
           {content}
-        </h4>
-      </div>
+        </motion.h4>
+      </motion.div>
       <DismissButton onClick={handleDismiss} bgColor={bgColor} />
-    </div>
+    </motion.div>
   );
 };
 
@@ -114,7 +117,7 @@ TopBanner.propTypes = {
   margin: string,
   padding: string,
   bgColor: string,
-  gradient: string,
+  gradient: string || func,
   position: string,
   top: string,
   textColor: string,

@@ -1,8 +1,16 @@
+import { motion } from "framer-motion";
 import React from "react";
 import { FaHome } from "react-icons/fa";
+import { pageVariant, iconVariants } from "../../animations";
 
 const Home = () => (
-  <div style={{ padding: `1rem` }}>
+  <motion.div
+    style={{ padding: `1rem` }}
+    variants={pageVariant}
+    initial="hidden"
+    animate="visible"
+    exit="exit"
+  >
     <Header label="Home" />
     <hr color="#363636" />
     <div className="flex-column">
@@ -19,6 +27,7 @@ const Home = () => (
       <SubHeader label="Inputs" />
       <LinkTo label="Text" path="/text-input" />
       <LinkTo label="Password" path="/password-input" />
+      <LinkTo label="Search" path="/search-input" />
 
       <SubHeader label="Modals" />
       <LinkTo label="Alert" path="/modal-alert" />
@@ -27,12 +36,14 @@ const Home = () => (
       <LinkTo label="Checkbox" path="/checkbox" />
       <LinkTo label="Burger" path="/menu-toggle" />
     </div>
-  </div>
+  </motion.div>
 );
 
 const Header = ({ label }) => (
   <div style={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
-    <FaHome size="1.75rem" color="#fa8142" />
+    <motion.span variants={iconVariants} initial="hidden" animate="visible">
+      <FaHome size="1.75rem" color="#fa8142" />
+    </motion.span>
     <h1
       style={{
         textAlign: `left`,

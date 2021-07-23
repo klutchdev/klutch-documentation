@@ -196,10 +196,10 @@ a:hover {
   background: none;
 }
 
+/* Animation */
 .rotation {
   animation: rotation 1.2s linear infinite;
 }
-
 @keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -209,6 +209,7 @@ a:hover {
   }
 }
 
+/* Media queries */
 @media (min-width: 1024px) {
   h1 {
     font-size: 2rem;

@@ -1,7 +1,20 @@
-export const passwordInputCode = `import React, { useRef, useState } from "react";
+export const searchInputCode = `import React, { useEffect, useRef, useState } from "react";
 import { string, element, func } from "prop-types";
 
-const PasswordInput = ({
+const fruits = [
+  "Apple 🍎",
+  "Banana 🍌",
+  "Cherry 🍒",
+  "Peach 🍑",
+  "Watermelon 🍉",
+  "Kiwi 🥝",
+  "Strawberry 🍓",
+  "Pineapple 🍍",
+  "Tomato 🍅",
+  "Lemon 🍋",
+];
+
+const SearchInput = ({
   type,
   value,
   leftIcon,
@@ -9,6 +22,7 @@ const PasswordInput = ({
   placeholder,
   onKeyDown,
   onKeyUp,
+  onChange,
   textColor,
   leftIconColor,
   rightIconColor,
@@ -19,43 +33,36 @@ const PasswordInput = ({
   radius,
   shadow,
   autoComplete,
-  isVisible,
-  setIsVisible,
 }) => {
-  const passwordInputRef = useRef(null);
-  const [val, setVal] = useState("");
+  const inputRef = useRef(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
-  let len = val.length;
-
-  const onChange = (e) => {
-    setVal(e.target.value);
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
   };
 
-  const borderStyle =
-    (len > 0 && len < 8 && "red 1px solid") ||
-    (len >= 8 && "#22da6b 1px solid") ||
-    "1px solid #545759";
+  useEffect(() => {
+    const results = fruits.filter((fruit) => {
+      return fruit.toLowerCase().includes(searchTerm);
+    });
+    setSearchResults(results);
+  }, [searchTerm]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
-      }}
-    >
+    <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
       <div
-        ref={passwordInputRef}
+        ref={inputRef}
         style={{
           width: width || "100%",
           height: height || "2.75rem",
-          margin: margin || "0.25rem 0 1rem 0",
+          margin: margin || "0.25rem 0 0.5rem 0",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-evenly",
           outline: "none",
           background: "#03030350",
-          border: border || borderStyle,
+          border: border || "1px solid #545759",
           borderRadius: radius || "4px",
           transition: "all 300ms ease",
           boxShadow: shadow || "1px 1px 10px #03030390",
@@ -70,7 +77,7 @@ const PasswordInput = ({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: val.length >= 8 ? "green" : "#3e4244",
+              color: leftIconColor || "#3e4244",
               transition: "all 300ms ease",
             }}
           >
@@ -78,12 +85,12 @@ const PasswordInput = ({
           </div>
         )}
         <input
-          type={isVisible ? "text" : "password"}
-          value={val || value}
-          onChange={onChange}
+          type={type || "text"}
+          value={searchTerm || value}
+          onChange={handleChange || onChange}
           onKeyUp={onKeyUp}
           onKeyDown={onKeyDown}
-          placeholder={placeholder}
+          placeholder={"Search fruits..." || placeholder}
           autoComplete={autoComplete || "off"}
           style={{
             width: "100%",
@@ -95,14 +102,13 @@ const PasswordInput = ({
             justifyContent: "flex-start",
             color: textColor || "#cccccc",
             background: "transparent",
-            fontSize: "1.5rem",
-            fontWeight: 500,
+            fontSize: "1.25rem",
+            fontWeight: 400,
             fontFamily: "Montserrat",
           }}
         />
         {rightIcon && (
           <div
-            onClick={() => setIsVisible(!isVisible)}
             style={{
               margin: "auto 0 auto auto",
               width: "3rem",
@@ -119,21 +125,52 @@ const PasswordInput = ({
         )}
       </div>
 
-      {val.length > 0 && val.length < 8 && (
-        <span style={{ color: "red", fontWeight: 500 }}>
-          * Must be 8 or more characters
-        </span>
-      )}
-      {val.length >= 8 && (
-        <span style={{ color: "green", fontWeight: 500 }}>
-          ✔︎ Must be 8 or more characters
-        </span>
-      )}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          padding: "0 0.25rem",
+        }}
+      >
+        {searchTerm && searchResults.length > 0 && (
+          <p
+            style={{
+              color: "#e8ceff",
+              margin: "0.25rem auto 0.25rem 0",
+              fontSize: "110%",
+              fontStyle: "italic",
+            }}
+          >
+            Showing {searchResults.length} results:
+          </p>
+        )}
+        {searchTerm && !searchResults.length && (
+          <p
+            style={{
+              color: "#e8ceff",
+              margin: "0.25rem auto 0.25rem 0",
+              fontSize: "110%",
+              fontStyle: "italic",
+            }}
+          >
+            No results found!
+          </p>
+        )}
+        {searchTerm &&
+          searchResults &&
+          searchResults.map((match) => {
+            return (
+              <p style={{ color: "#f9f2ff", margin: "0.25rem auto 0 0" }}>
+                {match}
+              </p>
+            );
+          })}
+      </div>
     </div>
   );
 };
 
-PasswordInput.propTypes = {
+SearchInput.propTypes = {
   leftIcon: element,
   rightIcon: element,
   type: string,
@@ -155,6 +192,6 @@ PasswordInput.propTypes = {
   bgColor: string,
 };
 
-export default PasswordInput;
+export default SearchInput;
 
 `;

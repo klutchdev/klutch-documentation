@@ -34,15 +34,16 @@ const TextInput = ({
         width: width || "100%",
         height: height || "3rem",
         margin: margin || "0.25rem 0 1rem 0",
+        padding: "0 0.25rem",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-evenly",
         outline: "none",
         background: "#03030350",
-        border: border || "2px solid #3e4244",
-        borderRadius: radius || "6px",
+        border: border || "1px solid #545759",
+        borderRadius: radius || "4px",
         transition: "all 300ms ease",
-        boxShadow: shadow || "1px 1px 6px #030303",
+        boxShadow: shadow || "1px 1px 10px #03030390",
       }}
     >
       {leftIcon && (

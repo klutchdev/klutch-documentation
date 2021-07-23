@@ -26,14 +26,14 @@ const ModalAlert = ({
         right: 0,
         bottom: 0,
         height: "calc(100vh)",
-        width: "calc(100vw)",
+        width: "100vw",
         zIndex: 500,
         overflow: "hidden",
         background: "#000000cc",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        transition: transition || "all ease 400ms",
+        transition: transition || " all ease 300ms",
       }}
     >
       <div
@@ -44,26 +44,25 @@ const ModalAlert = ({
           height: height || "calc(25vh)",
           margin: margin || "auto",
           background: background || "linear-gradient(#1d2021, #12181b)",
-          borderRadius: radius || "2px",
+          borderRadius: radius || "6px",
           border: border,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "space-around",
-          transition: transition || "all ease 400ms",
+          justifyContent: "center",
+          transition: transition || " all ease 300ms",
           overflow: "hidden",
         }}
       >
         <h3
           style={{
-            margin: "2rem auto 2rem auto",
+            margin: "2rem auto 3rem auto",
             textAlign: "left",
             color: textColor || "#22da6b",
             fontSize: "2rem",
             fontWeight: 500,
             fontFamily: "Montserrat",
             letterSpacing: "1px",
-            transition: transition || "all ease 400ms",
           }}
         >
           {text}
@@ -72,8 +71,8 @@ const ModalAlert = ({
         <BasicButton
           type="button"
           label="Close"
-          width="75%"
-          margin="0 auto 1rem auto"
+          width="50%"
+          margin="auto auto 2rem auto"
           bgColor={textColor || "#22da6b"}
           textColor="#030303"
           disabledBgColor="#7de3a5"
@@ -101,5 +100,4 @@ ModalAlert.propTypes = {
 };
 
 export default ModalAlert;
-
 `;
