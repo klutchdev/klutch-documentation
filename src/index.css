@@ -182,9 +182,19 @@ a:hover {
   justify-content: flex-start;
   margin: 2rem auto 2rem 0.5rem;
 }
-
-.flex-column {
+.flex {
   display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.column {
   flex-direction: column;
 }
 

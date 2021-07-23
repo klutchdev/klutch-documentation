@@ -21,7 +21,7 @@ const SearchInputPage = () => {
         title="Search Input"
         component={
           <SearchInput
-            width={isDesktop ? "50%" : "calc(100%)"}
+            width={isDesktop ? "calc(50%)" : "calc(100%)"}
             leftIcon={<SearchSVG />}
             type="text"
             placeholder="Search fruits"

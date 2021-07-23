@@ -1,30 +1,22 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState } from "react";
+import { string, func, bool } from "prop-types";
 
-import { string, func, bool, number } from "prop-types";
-
-const BasicButton = ({
+const TextButton = ({
   type,
   onClick,
   width,
   bgColor,
-  disabledBgColor,
   textColor,
   disabled,
-  disabledTextColor,
   margin,
   padding,
-  fontFamily,
   height,
-  radius,
   border,
-  fontSize,
-  letterSpacing,
   transition,
   shadow,
-  hoverShadow,
-  fontWeight,
-  textAlign,
   label,
+  hoverLabel,
 }) => {
   const buttonRef = useRef(null);
   const [isHover, setIsHover] = useState(false);
@@ -53,53 +45,45 @@ const BasicButton = ({
         type={type || "button"}
         disabled={disabled || false}
         style={{
-          width: width || `auto`,
-          height: height || `3rem`,
-          padding: padding || `0 1rem`,
-          margin: margin || `1rem auto`,
-          background: disabled ? disabledBgColor : bgColor,
-          color: disabled ? disabledTextColor : textColor,
-          border: border || `none`,
-          borderRadius: radius || `4px`,
-          textAlign: textAlign || `center`,
-          fontWeight: fontWeight || 600,
-          fontSize: fontSize || `1.35rem`,
-          letterSpacing: letterSpacing || `1px`,
-          fontFamily: fontFamily || `"Montserrat", sans-serif`,
-          filter: isHover ? ` brightness(1.2)` : ` brightness(1)`,
-          transition: transition || `all 250ms ease`,
-          boxShadow: isHover ? hoverShadow : shadow,
+          width: width || "auto",
+          height: height || "3rem",
+          padding: padding || "0 1rem",
+          margin: margin || "1rem auto",
+          background: isHover ? bgColor : "transparent",
+          color: textColor,
+          border: border || "none",
+          borderRadius: "4px",
+          textAlign: "center",
+          fontWeight: 600,
+          fontSize: "1.25rem",
+          letterSpacing: "1px",
+          fontFamily: '"Montserrat", sans-serif',
+          filter: disabled ? " brightness(0.9)" : " brightness(1)",
+          transition: transition || "all 250ms ease",
+          boxShadow: shadow,
         }}
       >
-        {label}
+        {hoverLabel && isHover ? hoverLabel : label}
       </button>
     </div>
   );
 };
 
-BasicButton.propTypes = {
+TextButton.propTypes = {
   type: string.isRequired,
   label: string.isRequired,
+  hoverLabel: string,
   onClick: func,
   width: string,
   bgColor: string,
-  disabledBgColor: string,
   textColor: string,
   disabled: bool,
-  disabledTextColor: string,
   margin: string,
   padding: string,
-  fontFamily: string,
-  height: string,
-  radius: string,
   border: string,
   fontSize: string,
-  letterSpacing: string,
   transition: string,
   shadow: string,
-  hoverShadow: string,
-  fontWeight: number,
-  textAlign: string,
 };
 
-export default BasicButton;
+export default TextButton;

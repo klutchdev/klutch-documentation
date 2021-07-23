@@ -19,7 +19,13 @@ const TextInputPage = () => {
     >
       <ComponentTemplate
         title="Text Input"
-        component={<TextInput width={isDesktop ? "50%" : "100%"} type="text" />}
+        component={
+          <TextInput
+            width={isDesktop ? "50%" : "100%"}
+            type="text"
+            placeholder="Enter some text"
+          />
+        }
         codeBlock={
           <CodeBlock
             lang="jsx"

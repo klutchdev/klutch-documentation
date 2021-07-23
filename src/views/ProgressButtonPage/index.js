@@ -29,7 +29,7 @@ const ProgressButtonPage = () => {
   useEffect(() => {
     if (percent === 100) {
       setLoading(false);
-      setLabel("Upload complete!");
+      setLabel("Complete!");
     }
   }, [percent]);
 

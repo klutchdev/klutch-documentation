@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { string, element, func } from "prop-types";
 
 const PasswordInput = ({
-  type,
   value,
   leftIcon,
   rightIcon,
@@ -10,7 +9,6 @@ const PasswordInput = ({
   onKeyDown,
   onKeyUp,
   textColor,
-  leftIconColor,
   rightIconColor,
   width,
   height,
@@ -70,7 +68,7 @@ const PasswordInput = ({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: val.length >= 8 ? "green" : "#3e4244",
+              color: val.length >= 8 ? "green" : "#484c4e",
               transition: "all 300ms ease",
             }}
           >
@@ -93,10 +91,11 @@ const PasswordInput = ({
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-start",
-            color: textColor || "#cccccc",
+            color: textColor || "#d9d9d9",
             background: "transparent",
-            fontSize: "1.5rem",
-            fontWeight: 500,
+            fontSize: "1.25rem",
+            letterSpacing: "0.75px",
+            fontWeight: 400,
             fontFamily: "Montserrat",
           }}
         />
@@ -110,7 +109,7 @@ const PasswordInput = ({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              color: rightIconColor || "#3e4244",
+              color: rightIconColor || "#484c4e",
               transition: "all 300ms ease",
             }}
           >
@@ -142,7 +141,7 @@ PasswordInput.propTypes = {
   textColor: string,
   leftIconColor: string,
   rightIconColor: string,
-  placeholder: func,
+  placeholder: string,
   onKeyUp: func,
   onKeyDown: func,
   width: string,

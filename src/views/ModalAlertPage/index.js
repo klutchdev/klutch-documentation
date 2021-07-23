@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ComponentTemplate from "../../components/ComponentTemplate";
 import CodeBlock from "../../components/CodeBlock";
 import { FaReact } from "react-icons/fa";
-// import ModalAlert from "../../components/ModalAlert";
 import BasicButton from "../../components/BasicButton";
 import useMediaQuery from "../../hooks/useMedia";
 import { modalAlertCode } from "../../components/ModalAlert/modalAlertCode";
@@ -11,7 +10,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { pageVariant } from "../../animations";
 
 const ModalAlertPage = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   const isLandscape = useMediaQuery(
     "(min-width: 480px) and (max-height: 600px)"
@@ -25,19 +24,23 @@ const ModalAlertPage = () => {
       exit="exit"
     >
       <ModalAlertFramer
-        handleClose={() => setShowModal(false)}
-        showModal={showModal}
-        text="Modal Alert!"
+        handleClose={() => setShowAlert(false)}
+        showModal={showAlert}
+        text="Basic alert modal"
         width={isDesktop ? "40%" : isLandscape ? "60%" : "95%"}
         height={isLandscape ? "calc(65vh)" : "calc(30vh)"}
+        background="linear-gradient(150deg, #272829 0%,#131313 100%)"
         textColor="#e562ff"
       />
+
       <AnimatePresence
         exitBeforeEnter
-        onExitComplete={() => setShowModal(false)}
+        onExitComplete={() => {
+          setShowAlert(false);
+        }}
       >
         <ComponentTemplate
-          title="Modal Alert"
+          title="Alert Modal"
           component={
             <div
               style={{
@@ -49,14 +52,12 @@ const ModalAlertPage = () => {
             >
               <BasicButton
                 type="button"
-                label="Open Modal"
+                label="Show alert"
                 margin="auto auto 1rem 0"
-                bgColor="#22da6b"
+                bgColor="#e562ff"
                 textColor="#030303"
-                disabledBgColor="#676767"
-                disabledTextColor="#030303cc"
                 disabled={false}
-                onClick={() => setShowModal(true)}
+                onClick={() => setShowAlert(true)}
               />
             </div>
           }

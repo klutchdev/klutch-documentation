@@ -44,7 +44,7 @@ const SearchInput = ({
 
   useEffect(() => {
     const results = fruits.filter((fruit) => {
-      return fruit.toLowerCase().includes(searchTerm);
+      return fruit.toLowerCase().includes(searchTerm.toLowerCase());
     });
     setSearchResults(results);
   }, [searchTerm]);
@@ -100,9 +100,10 @@ const SearchInput = ({
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-start",
-            color: textColor || "#cccccc",
+            color: textColor || "#d9d9d9",
             background: "transparent",
             fontSize: "1.25rem",
+            letterSpacing: "0.75px",
             fontWeight: 400,
             fontFamily: "Montserrat",
           }}
@@ -136,10 +137,11 @@ const SearchInput = ({
         {searchTerm && searchResults.length > 0 && (
           <p
             style={{
-              color: "#e8ceff",
+              color: "#a76ff5",
               margin: "0.25rem auto 0.25rem 0",
               fontSize: "110%",
-              fontStyle: "italic",
+              fontWeight: 600,
+              // fontStyle: "italic",
             }}
           >
             Showing {searchResults.length} results:
@@ -162,10 +164,12 @@ const SearchInput = ({
           searchResults.map((match) => {
             return (
               <p
+                key={match}
                 style={{
-                  color: "#f9f2ff",
+                  color: "#dfc8ff",
                   margin: "0.25rem auto 0 0",
                   fontSize: "95%",
+                  fontWeight: 400,
                 }}
               >
                 {match}
@@ -186,7 +190,7 @@ SearchInput.propTypes = {
   textColor: string,
   leftIconColor: string,
   rightIconColor: string,
-  placeholder: func,
+  placeholder: string,
   onKeyUp: func,
   onKeyDown: func,
   width: string,

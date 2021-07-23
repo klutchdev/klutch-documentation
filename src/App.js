@@ -7,7 +7,9 @@ const TextInputPage = lazy(() => import("./views/TextInputPage"));
 const MenuTogglePage = lazy(() => import("./views/MenuTogglePage"));
 const IconButtonPage = lazy(() => import("./views/IconButtonPage"));
 const ModalAlertPage = lazy(() => import("./views/ModalAlertPage"));
+const ModalPromptPage = lazy(() => import("./views/ModalPromptPage"));
 const BasicButtonPage = lazy(() => import("./views/BasicButtonPage"));
+const TextButtonPage = lazy(() => import("./views/TextButtonPage"));
 const PasswordInputPage = lazy(() => import("./views/PasswordInputPage"));
 const SearchInputPage = lazy(() => import("./views/SearchInputPage"));
 const OutlineButtonPage = lazy(() => import("./views/OutlineButtonPage"));
@@ -24,10 +26,12 @@ const App = () => {
       <Route component={LoadingButtonPage} exact path="/loading-button" />
       <Route component={MenuTogglePage} exact path="/menu-toggle" />
       <Route component={ModalAlertPage} exact path="/modal-alert" />
+      <Route component={ModalPromptPage} exact path="/modal-prompt" />
       <Route component={OutlineButtonPage} exact path="/outline-button" />
       <Route component={PasswordInputPage} exact path="/password-input" />
       <Route component={ProgressButtonPage} exact path="/progress-button" />
       <Route component={SearchInputPage} exact path="/search-input" />
+      <Route component={TextButtonPage} exact path="/text-button" />
       <Route component={TextInputPage} exact path="/text-input" />
       <Route component={BannerPage} exact path="/top-banner" />
       <Route component={Home} path="/" />

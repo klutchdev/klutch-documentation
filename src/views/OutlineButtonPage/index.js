@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ComponentTemplate from "../../components/ComponentTemplate";
 import CodeBlock from "../../components/CodeBlock";
 import { FaReact } from "react-icons/fa";
@@ -7,9 +7,14 @@ import OutlineButton from "../../components/OutlineButton";
 import { outlineButtonCode } from "../../components/OutlineButton/outlineButtonCode";
 import { motion } from "framer-motion";
 import { pageVariant } from "../../animations";
+import ModalAlertFramer from "../../components/ModalAlertFramer";
 
 const OutlineButtonPage = () => {
+  const [showModal, setShowModal] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isLandscape = useMediaQuery(
+    "(min-width: 480px) and (max-height: 600px)"
+  );
   return (
     <motion.div
       variants={pageVariant}
@@ -17,6 +22,16 @@ const OutlineButtonPage = () => {
       animate="visible"
       exit="exit"
     >
+      <ModalAlertFramer
+        handleClose={() => setShowModal(false)}
+        showModal={showModal}
+        text="💰 🍀 🌈 🍀 💰"
+        fontSize="250%"
+        width={isDesktop ? "40%" : isLandscape ? "60%" : "95%"}
+        height={isLandscape ? "calc(65vh)" : "calc(30vh)"}
+        textColor="#e253ff"
+        background="linear-gradient(135deg, #272829 0%,#090909 100%)"
+      />
       <ComponentTemplate
         title="Outline Button"
         component={
@@ -30,7 +45,7 @@ const OutlineButtonPage = () => {
             bgColor="#151718"
             disabledTextColor="#22da6bcc"
             disabled={false}
-            onClick={() => alert("🌈 ☘️ 💰")}
+            onClick={() => setShowModal(true)}
           />
         }
         codeBlock={

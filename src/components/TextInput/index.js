@@ -32,7 +32,7 @@ const TextInput = ({
       ref={inputRef}
       style={{
         width: width || "100%",
-        height: height || "3rem",
+        height: height || "2.75rem",
         margin: margin || "0.25rem 0 1rem 0",
         padding: "0 0.25rem",
         display: "flex",
@@ -78,10 +78,11 @@ const TextInput = ({
           display: "flex",
           alignItems: "center",
           justifyContent: "flex-start",
-          color: textColor || "#cccccc",
+          color: textColor || "#d9d9d9",
           background: "transparent",
-          fontSize: "1.5rem",
-          fontWeight: 500,
+          fontSize: "1.25rem",
+          letterSpacing: "0.75px",
+          fontWeight: 400,
           fontFamily: "Montserrat",
         }}
       />

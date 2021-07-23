@@ -25,6 +25,7 @@ const PasswordInputPage = () => {
             width={isDesktop ? "50%" : "100%"}
             isVisible={isVisible}
             setIsVisible={setIsVisible}
+            placeholder="Enter password"
             leftIcon={<KeySVG />}
             rightIcon={<VisibleSVG isVisible={isVisible} />}
           />

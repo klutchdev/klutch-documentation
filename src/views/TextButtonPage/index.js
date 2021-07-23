@@ -1,22 +1,21 @@
 import React, { useState } from "react";
 import ComponentTemplate from "../../components/ComponentTemplate";
-import BasicButton from "../../components/BasicButton";
-import { basicButtonCode } from "../../components/BasicButton/basicButtonCode";
+import { textButtonCode } from "../../components/TextButton/textButtonCode";
 import CodeBlock from "../../components/CodeBlock";
 import { FaReact } from "react-icons/fa";
 import useMediaQuery from "../../hooks/useMedia";
-import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import { pageVariant } from "../../animations";
+import TextButton from "../../components/TextButton";
 import ModalAlertFramer from "../../components/ModalAlertFramer";
 
-const BasicButtonPage = () => {
+const TextButtonPage = () => {
   const [showModal, setShowModal] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   const isLandscape = useMediaQuery(
     "(min-width: 480px) and (max-height: 600px)"
   );
-  const history = useHistory();
+
   return (
     <motion.div
       variants={pageVariant}
@@ -27,14 +26,15 @@ const BasicButtonPage = () => {
       <ModalAlertFramer
         handleClose={() => setShowModal(false)}
         showModal={showModal}
-        text="Hello there!"
-        width={isDesktop ? "40%" : isLandscape ? "60%" : "95%"}
+        text="💩"
+        fontSize="500%"
+        width={isDesktop ? "40%" : isLandscape ? "60%" : "80%"}
         height={isLandscape ? "calc(65vh)" : "calc(30vh)"}
-        textColor="#22da6b"
+        textColor="#94531a"
         background="linear-gradient(135deg, #272829 0%,#090909 100%)"
       />
       <ComponentTemplate
-        title="Button"
+        title="Text Button"
         component={
           <div
             style={{
@@ -44,50 +44,53 @@ const BasicButtonPage = () => {
               justifyContent: "space-evenly",
             }}
           >
-            <BasicButton
+            <TextButton
               type="button"
-              label="Greetings"
+              label="Text Button"
+              hoverLabel=" 💩 💩 💩 💩 "
               width={isDesktop ? "20%" : "auto"}
               margin="auto auto 1rem 0"
-              bgColor="#22da6b"
-              textColor="#030303ee"
-              disabledBgColor="#5eaf7ebe"
-              disabledTextColor="#030303aa"
+              bgColor="#21222b"
+              textColor="#00b7ff"
               disabled={false}
               onClick={() => setShowModal(true)}
             />
-            <BasicButton
+            <TextButton
               type="button"
-              label="Disabled"
+              label="Link Button"
+              hoverLabel="Fireship 🔥 bio"
               width={isDesktop ? "20%" : "auto"}
               margin="auto auto 1rem 0"
-              bgColor="#22da6b"
-              textColor="#030303ee"
-              disabledBgColor="#5eaf7ebe"
-              disabledTextColor="#030303aa"
-              disabled={true}
-              onClick={() => alert("Disabled")}
-            />
-            <BasicButton
-              type="button"
-              label="Cancel"
-              width={isDesktop ? "15%" : "auto"}
-              margin="auto auto auto 0"
-              bgColor="#c74d4d"
-              textColor="#030303"
-              disabledBgColor="#9b3a3a"
-              disabledTextColor="#030303cc"
+              bgColor="#e35a11"
+              textColor="#ffcb59"
               disabled={false}
-              onClick={() => history.goBack()}
+              onClick={() =>
+                window.open(
+                  "https://fireship.io/contributors/kyle-leary/",
+                  "_blank"
+                )
+              }
+            />
+            <TextButton
+              type="button"
+              label="Dashed Button"
+              hoverLabel="Check console 👨🏻‍💻"
+              width={isDesktop ? "20%" : "auto"}
+              margin="auto auto 1rem 0"
+              border="1px dashed #333333"
+              bgColor="#21222b"
+              textColor="#22da6b"
+              disabled={false}
+              onClick={() => console.info("Dashed Button!")}
             />
           </div>
         }
         codeBlock={
           <CodeBlock
             lang="jsx"
-            content={basicButtonCode}
+            content={textButtonCode}
             icon={<FaReact size="1.75rem" className="react" />}
-            file="BasicButton.jsx"
+            file="TextButton.jsx"
           />
         }
       />
@@ -95,4 +98,4 @@ const BasicButtonPage = () => {
   );
 };
 
-export default BasicButtonPage;
+export default TextButtonPage;

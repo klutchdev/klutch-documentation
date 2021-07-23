@@ -2,7 +2,7 @@ export const modalAlertCode = `import React from "react";
 import { string, func } from "prop-types";
 import BasicButton from "../BasicButton";
 
-const ModalAlert = ({
+const ModalPrompt = ({
   handleClose,
   text,
   textColor,
