@@ -55,7 +55,7 @@ const ProgressButtonPage = () => {
         title="Progress Button"
         component={
           <ProgressButton
-            width={isDesktop ? "20%" : "75%"}
+            width={isDesktop ? "20%" : "100%"}
             type="button"
             label={label}
             margin="auto auto auto 0"

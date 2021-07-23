@@ -30,9 +30,7 @@ const App = () => {
       <Route component={SearchInputPage} exact path="/search-input" />
       <Route component={TextInputPage} exact path="/text-input" />
       <Route component={BannerPage} exact path="/top-banner" />
-      <Route path="/">
-        <Home />
-      </Route>
+      <Route component={Home} path="/" />
     </Switch>
   );
 };

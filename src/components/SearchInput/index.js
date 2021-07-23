@@ -129,7 +129,8 @@ const SearchInput = ({
         style={{
           display: "flex",
           flexDirection: "column",
-          padding: "0 0.25rem",
+          width: "100%",
+          padding: "0 0 0 0.25rem",
         }}
       >
         {searchTerm && searchResults.length > 0 && (
@@ -160,7 +161,13 @@ const SearchInput = ({
           searchResults &&
           searchResults.map((match) => {
             return (
-              <p style={{ color: "#f9f2ff", margin: "0.25rem auto 0 0" }}>
+              <p
+                style={{
+                  color: "#f9f2ff",
+                  margin: "0.25rem auto 0 0",
+                  fontSize: "95%",
+                }}
+              >
                 {match}
               </p>
             );

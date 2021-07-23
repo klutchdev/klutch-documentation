@@ -63,7 +63,7 @@ const Header = ({ label }) => (
         fontSize: "100%",
       }}
     >
-      0.1.5
+      0.1.6
     </p>
   </div>
 );
