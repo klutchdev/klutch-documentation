@@ -117,7 +117,7 @@ const Header = ({ label }) => (
         cursor: "default",
       }}
     >
-      0.1.7
+      0.1.8
     </motion.p>
   </div>
 );

@@ -29,8 +29,8 @@ const ModalPromptPage = () => {
       <ModalAlertFramer
         handleClose={() => setShowPrompt(false)}
         showModal={showPrompt}
-        text="Show prompt stuff?"
-        fontSize="2rem"
+        text="Show some stuff?"
+        fontSize="1.5rem"
         width={isDesktop ? "40%" : isLandscape ? "60%" : "95%"}
         height={isLandscape ? "calc(65vh)" : "calc(30vh)"}
         background="linear-gradient(150deg, #272829 0%,#131313 100%)"
@@ -39,7 +39,7 @@ const ModalPromptPage = () => {
         <BasicButton
           type="button"
           label="Heckin yeah!"
-          width="60%"
+          width="75%"
           height="2.75rem"
           margin="0 auto 1rem auto"
           bgColor="#65e625"
@@ -53,7 +53,7 @@ const ModalPromptPage = () => {
         <TextButton
           type="button"
           label="No, stuff sucks!"
-          width="60%"
+          width="75%"
           height="2.75rem"
           margin="0 auto 1rem auto"
           border="1px dashed #333333"
@@ -66,7 +66,7 @@ const ModalPromptPage = () => {
       <ModalAlertFramer
         handleClose={() => setShowPrompt2(false)}
         showModal={showPrompt2}
-        text="Prompt stuff is fun?"
+        text="Stuff is fun?"
         fontSize="1.75rem"
         width={isDesktop ? "40%" : isLandscape ? "60%" : "95%"}
         height={isLandscape ? "calc(65vh)" : "calc(30vh)"}
@@ -84,7 +84,7 @@ const ModalPromptPage = () => {
           disabled={false}
           onClick={() => {
             setShowPrompt2(false);
-            setPromptLabel("✔︎ Prompt stuff");
+            setPromptLabel("Did stuff");
             setTimeout(() => setPromptLabel("Show prompt"), 3000);
           }}
         />
