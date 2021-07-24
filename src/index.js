@@ -2,11 +2,17 @@ import React, { StrictMode } from "react";
 import "./index.css";
 import { render } from "react-dom";
 import App from "./App";
+import AuthContextProvider from "./contexts/AuthContext";
+import MenuContextProvider from "./contexts/MenuContext";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 render(
   <StrictMode>
-    <App />
+    <AuthContextProvider>
+      <MenuContextProvider>
+        <App />
+      </MenuContextProvider>
+    </AuthContextProvider>
   </StrictMode>,
   document.getElementById("root")
 );
