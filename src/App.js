@@ -50,6 +50,7 @@ const Loading = () => (
 const App = () => {
   const [user, loading, error] = useAuthState(auth);
   const isDesktop = useMedia("(min-width: 1024px)");
+  const isLandscape = useMedia("(min-width: 480px) and (max-height: 600px)");
 
   const history = useHistory();
 
@@ -71,7 +72,13 @@ const App = () => {
         <Suspense fallback={<Loading />}>
           <MenuDrawer
             position="fixed"
-            width={isDesktop ? "calc(35vw)" : "calc(70vw)"}
+            width={
+              isDesktop
+                ? "calc(35vw)"
+                : isLandscape
+                ? "calc(50vw)"
+                : "calc(70vw)"
+            }
           >
             <div
               style={{
@@ -139,9 +146,8 @@ const App = () => {
                   window.open("https://twitter.com/klutchdev", "_blank")
                 }
               />
-              <br />
               <Footer />
-              <div style={{ height: "35%", margin: "0 auto 0 auto" }} />
+              <div style={{ height: "35%", margin: "1rem auto 0.5rem auto" }} />
               {user ? (
                 <IconButton
                   type="button"
@@ -152,7 +158,7 @@ const App = () => {
                       style={{ margin: "auto 0.5rem" }}
                     />
                   }
-                  width="100%"
+                  width="auto"
                   margin="0 1rem 1rem 1rem"
                   fontSize="130%"
                   fontWeight={700}

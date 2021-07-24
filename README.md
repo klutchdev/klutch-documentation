@@ -2,7 +2,7 @@
 
 # Klutch docs 
 
-> v.0.1.9
+> v.0.2.1
 
 ## Description
 
@@ -26,8 +26,8 @@
 - [ ] Add TS support
 - [ ] Search field
 - [ ] Content tags
-- [ ] Export jsx
-- [ ] Copy button
+- [ ] Export / DL jsx files
+- [ ] Code copy feature
 
 ### Upcoming features
 
@@ -42,7 +42,7 @@
 |             | Image modal |   50%       |
 |             | Carousel    |   25%       |
 | Firebase    | Google Auth |   100%      |
-|             | Storage     |   90%       |
+|             | Storage     |   100%      |
 |             | Firestore   |   0%        |
 |             | Functions   |   0%        |
 | Hooks       | useStorage  |   100%      |

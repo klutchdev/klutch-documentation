@@ -38,7 +38,7 @@ const AvatarImage = () => {
       }}
     >
       <motion.div
-        onClick={handleClick}
+        onClick={user ? handleClick : () => {}}
         style={{
           margin: "1rem auto",
           width: "100%",
@@ -90,7 +90,7 @@ const AvatarImage = () => {
         ref={hiddenInput}
         accept={types.join(",")}
         style={{ display: "none" }}
-        onChange={handleChange}
+        onChange={user ? handleChange : () => {}}
       />
       {file && <Loader file={file} setFile={setFile} />}
     </motion.div>
