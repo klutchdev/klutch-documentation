@@ -1,18 +1,13 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
 import ComponentTemplate from "../../components/ComponentTemplate";
 import CodeBlock from "../../components/CodeBlock";
 import { FaReact } from "react-icons/fa";
-import MenuToggle from "../../components/MenuToggle";
-import { menuToggleCode } from "../../components/MenuToggle/menuToggleCode";
 import { motion } from "framer-motion";
 import { pageVariant } from "../../animations";
+import AvatarImage from "../../components/AvatarImage";
+import { avatarCode } from "../../components/AvatarImage/avatarCode";
 
-const MenuTogglePage = () => {
-  const [expanded, setExpanded] = useState(false);
-
-  const handleToggle = () => {
-    setExpanded(!expanded);
-  };
+const AvatarPage = () => {
   return (
     <motion.div
       variants={pageVariant}
@@ -21,21 +16,25 @@ const MenuTogglePage = () => {
       exit="exit"
     >
       <ComponentTemplate
-        title="Burger"
+        title="Avatar"
         component={
-          <MenuToggle
-            menuExpanded={expanded}
-            handleExpand={handleToggle}
-            width="50"
-            height="50"
-          />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              width: "100%",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <AvatarImage />
+          </div>
         }
         codeBlock={
           <CodeBlock
             lang="jsx"
-            content={menuToggleCode}
+            content={avatarCode}
             icon={<FaReact size="1.75rem" className="react" />}
-            file="MenuToggle.jsx"
+            file="Avatar.jsx"
           />
         }
       />
@@ -43,4 +42,4 @@ const MenuTogglePage = () => {
   );
 };
 
-export default MenuTogglePage;
+export default AvatarPage;

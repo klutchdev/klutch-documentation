@@ -1,17 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { string, number } from "prop-types";
 
-const MenuToggle = ({ color, width, height }) => {
-  const [expanded, setExpanded] = useState(false);
-
-  const handleToggle = () => {
-    setExpanded(!expanded);
-  };
-
+const MenuToggle = ({ color, width, height, expanded, handleExpand }) => {
   return (
     <button
       aria-expanded={expanded}
-      onClick={handleToggle}
+      onClick={handleExpand}
       style={{
         background: `transparent`,
         border: `none`,

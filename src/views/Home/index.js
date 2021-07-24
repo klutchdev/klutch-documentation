@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { FaHome, FaMinus, FaPlus } from "react-icons/fa";
 import { pageVariant, iconVariants } from "../../animations";
@@ -9,6 +9,7 @@ const Home = () => {
   const [inputsCollapsed, setInputsCollapsed] = useState(true);
   const [modalsCollapsed, setModalsCollapsed] = useState(true);
   const [togglesCollapsed, setTogglesCollapsed] = useState(true);
+  const [imagesCollapsed, setImagesCollapsed] = useState(true);
 
   return (
     <motion.div
@@ -22,63 +23,69 @@ const Home = () => {
       <hr color="#363636" />
 
       <div className="flex column">
-        <AnimatePresence initial={false}>
-          <SubHeader
-            label="Alerts"
-            collapsed={alertsCollapsed}
-            handleClick={() => setAlertsCollapsed(!alertsCollapsed)}
-          />
-          <Group collapsed={alertsCollapsed}>
-            <LinkTo label="Banner" path="/top-banner" />
-          </Group>
+        <SubHeader
+          label="Alerts"
+          collapsed={alertsCollapsed}
+          handleClick={() => setAlertsCollapsed(!alertsCollapsed)}
+        />
+        <Group collapsed={alertsCollapsed}>
+          <LinkTo label="Banner" path="/top-banner" />
+        </Group>
 
-          <SubHeader
-            label="Buttons"
-            collapsed={buttonsCollapsed}
-            handleClick={() => setButtonsCollapsed(!buttonsCollapsed)}
-          />
-          <Group collapsed={buttonsCollapsed}>
-            <LinkTo label="Icon" path="/icon-button" />
-            <LinkTo label="Text" path="/text-button" />
-            <LinkTo label="Basic" path="/basic-button" />
-            <LinkTo label="Outline" path="/outline-button" />
-            <LinkTo label="Loading" path="/loading-button" />
-            <LinkTo label="Progress" path="/progress-button" />
-          </Group>
+        <SubHeader
+          label="Buttons"
+          collapsed={buttonsCollapsed}
+          handleClick={() => setButtonsCollapsed(!buttonsCollapsed)}
+        />
+        <Group collapsed={buttonsCollapsed}>
+          <LinkTo label="Icon" path="/icon-button" />
+          <LinkTo label="Text" path="/text-button" />
+          <LinkTo label="Basic" path="/basic-button" />
+          <LinkTo label="Outline" path="/outline-button" />
+          <LinkTo label="Loading" path="/loading-button" />
+          <LinkTo label="Progress" path="/progress-button" />
+        </Group>
 
-          <SubHeader
-            label="Inputs"
-            collapsed={inputsCollapsed}
-            handleClick={() => setInputsCollapsed(!inputsCollapsed)}
-          />
-          <Group collapsed={inputsCollapsed}>
-            <LinkTo label="Text" path="/text-input" />
-            <LinkTo label="Search" path="/search-input" />
-            <LinkTo label="Password" path="/password-input" />
-          </Group>
+        <SubHeader
+          label="Inputs"
+          collapsed={inputsCollapsed}
+          handleClick={() => setInputsCollapsed(!inputsCollapsed)}
+        />
+        <Group collapsed={inputsCollapsed}>
+          <LinkTo label="Text" path="/text-input" />
+          <LinkTo label="Search" path="/search-input" />
+          <LinkTo label="Password" path="/password-input" />
+        </Group>
 
-          <SubHeader
-            label="Modals"
-            collapsed={modalsCollapsed}
-            handleClick={() => setModalsCollapsed(!modalsCollapsed)}
-          />
-          <Group collapsed={modalsCollapsed}>
-            <LinkTo label="Alert" path="/modal-alert" />
-            <LinkTo label="Prompt" path="/modal-prompt" />
-          </Group>
+        <SubHeader
+          label="Images"
+          collapsed={imagesCollapsed}
+          handleClick={() => setImagesCollapsed(!imagesCollapsed)}
+        />
+        <Group collapsed={imagesCollapsed}>
+          <LinkTo label="Avatar" path="/avatar" />
+        </Group>
 
-          <SubHeader
-            label="Toggles"
-            collapsed={togglesCollapsed}
-            handleClick={() => setTogglesCollapsed(!togglesCollapsed)}
-          />
-          <Group collapsed={togglesCollapsed}>
-            <LinkTo label="Checkbox" path="/checkbox" />
-            <LinkTo label="Burger" path="/menu-toggle" />
-          </Group>
-        </AnimatePresence>
+        <SubHeader
+          label="Modals"
+          collapsed={modalsCollapsed}
+          handleClick={() => setModalsCollapsed(!modalsCollapsed)}
+        />
+        <Group collapsed={modalsCollapsed}>
+          <LinkTo label="Alert" path="/modal-alert" />
+          <LinkTo label="Prompt" path="/modal-prompt" />
+        </Group>
+
+        <SubHeader
+          label="Toggles"
+          collapsed={togglesCollapsed}
+          handleClick={() => setTogglesCollapsed(!togglesCollapsed)}
+        />
+        <Group collapsed={togglesCollapsed}>
+          <LinkTo label="Checkbox" path="/checkbox" />
+          <LinkTo label="Burger" path="/menu-toggle" />
+        </Group>
       </div>
-      <Footer />
     </motion.div>
   );
 };
@@ -117,7 +124,7 @@ const Header = ({ label }) => (
         cursor: "default",
       }}
     >
-      0.1.8
+      0.1.9
     </motion.p>
   </div>
 );
@@ -216,27 +223,5 @@ const LinkTo = ({ label, path }) => (
     {label}
   </motion.a>
 );
-
-const Footer = () => {
-  return (
-    <motion.a
-      href="mailto: klutchdevelopment@gmail.com"
-      style={{
-        position: "fixed",
-        bottom: "1rem",
-        right: "1rem",
-        textAlign: "center",
-        color: "#fa8142",
-        fontFamily: `Montserrat`,
-        margin: "auto",
-        fontWeight: 600,
-        fontSize: "100%",
-        cursor: "default",
-      }}
-    >
-      @KlutchDev
-    </motion.a>
-  );
-};
 
 export default Home;
