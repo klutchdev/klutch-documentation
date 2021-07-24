@@ -33,7 +33,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "clean": "rm -rf node_modules package-lock.json && npm i",
+    "clean": "rm -rf node_modules package-lock.json build && npm i",
     "build": "react-scripts build"
   },
   "eslintConfig": {

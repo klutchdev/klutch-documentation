@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import { createContext } from "react";
 import useMenu from "../hooks/useMenu";
 
 export const MenuContext = createContext();
