@@ -30,8 +30,8 @@ export const googleSignIn = async () => {
   await auth.signInWithPopup(provider).catch((error) => alert(error));
 };
 
+// export const arrayUnion = firebase.firestore.FieldValue.arrayUnion;
+// export const arrayRemove = firebase.firestore.FieldValue.arrayRemove;
 // export const increment = firebase.firestore.FieldValue.increment(1);
 // export const decrement = firebase.firestore.FieldValue.increment(-1);
 // export const timestamp = firebase.firestore.FieldValue.serverTimestamp();
-// export const arrayUnion = firebase.firestore.FieldValue.arrayUnion;
-// export const arrayRemove = firebase.firestore.FieldValue.arrayRemove;

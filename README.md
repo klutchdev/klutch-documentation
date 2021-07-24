@@ -2,7 +2,7 @@
 
 # Klutch docs 
 
-> v.0.1.8
+> v.0.1.9
 
 ## Description
 
@@ -14,34 +14,37 @@
 
 ### Priorities
 
-- [ ] Google auth
-- [ ] Account tab
-- [ ] Paid features
-- [ ] CSS snippets
-- [ ] View as TypeScript
-- [ ] Search bar
+- [x] Google auth
+- [x] Account tab
+- [x] Hooks / utilities
+- [x] Enable Suspense
+- [x] Lazy load assets
+- [x] Code splitting
+- [x] Build routing
+- [x] Enable StrictMode
+- [ ] Premium features
+- [ ] Add TS support
+- [ ] Search field
 - [ ] Content tags
-- [ ] Code export/copy
-- [ ] Custom bundling
-- [ ] Publish to NPM
+- [ ] Export jsx
+- [ ] Copy button
 
 ### Upcoming features
 
 | Category    |  Component  | Progress(%) | 
 | ----------- | ----------- | ----------- |
-| Canvas      | Confetti    |   0%        |
-| Inputs      | Color picker|   0%        |
-|             | Tag input   |   0%        |
-|             | Text area   |   0%        |
+| Canvas      | Confetti    |   25%       |
+| Inputs      | Color picker|   25%       |
+|             | Tag input   |   25%       |
+|             | Text area   |   25%       |
 | Images      | 16 x 19     |   0%        |
 |             | Masonry grid|   0%        |
-|             | Image modal |   0%        |
-|             | Carousel    |   0%        |
-| Firebase    | Google Auth |   75%       |
-|             | Storage     |   50%       |
-|             | Firestore   |   25%       |
+|             | Image modal |   50%       |
+|             | Carousel    |   25%       |
+| Firebase    | Google Auth |   100%      |
+|             | Storage     |   90%       |
+|             | Firestore   |   0%        |
 |             | Functions   |   0%        |
-| Hooks       | useStorage  |   25%       |
+| Hooks       | useStorage  |   100%      |
 |             | useQuery    |   25%       |
-|             | useAuth     |   75%       |
-|             | usePaginate |   0%        |
+|             | useAuth     |   100%      |
