@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { storage, auth } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-// import extractFileExtension from "../utilities/extractFileExtension";
 
 const useFirebaseStorage = (file) => {
   const [user] = useAuthState(auth);
@@ -12,17 +11,19 @@ const useFirebaseStorage = (file) => {
 
   const uploadFile = async () => {
     const ext = file.type.split("/")[1];
-    // const ext = extractFileExtension(file.name);
-    const ref = storage.ref(`Avatars/${user.uid}/${Date.now()}.${ext}`);
-    const task = ref.put(file);
+    const ref = storage.ref().child(`Avatars/${user.uid}/${Date.now()}.${ext}`);
+    const uploadTask = ref.put(file);
 
-    task.on(
+    uploadTask.on(
       "state_changed",
       (snap) => {
-        let pct = (snap.bytesTransferred / snap.totalBytes) * 100;
+        let pct = (snap.bytesTransferred / snap.totalBytes).toFixed(2) * 100;
         setProgress(pct);
       },
-      (error) => setError(error),
+      function (error) {
+        setError(error);
+        alert(error);
+      },
       () => {
         ref.getDownloadURL().then((downloadURL) => setURL(downloadURL));
       }

@@ -15,7 +15,6 @@ const AvatarImage = () => {
 
   const handleChange = (e) => {
     const picked = Array.from(e.target.files)[0];
-
     if (picked) {
       setFile(picked);
     } else {
@@ -54,9 +53,11 @@ const AvatarImage = () => {
             style={{
               margin: "auto",
               minWidth: "150px",
-              width: "auto",
               minHeight: "150px",
-              maxHeight: "200px",
+              maxWidth: "250px",
+              maxHeight: "250px",
+              width: "200px",
+              height: "200px",
               borderRadius: "50%",
               boxShadow: "1px 1px 12px #030303aa",
             }}
@@ -69,9 +70,11 @@ const AvatarImage = () => {
             style={{
               margin: "auto",
               minWidth: "150px",
-              width: "auto",
               minHeight: "150px",
-              maxHeight: "200px",
+              maxWidth: "250px",
+              maxHeight: "250px",
+              width: "200px",
+              height: "200px",
               borderRadius: "50%",
               boxShadow: "1px 1px 12px #030303aa",
             }}
@@ -96,7 +99,7 @@ const AvatarImage = () => {
 
 const Loader = ({ file, setFile }) => {
   const { user } = useContext(AuthContext);
-  const { progress, url } = useFirebaseStorage(file);
+  const { progress, url, error } = useFirebaseStorage(file);
 
   useEffect(() => {
     if (url) {
@@ -121,6 +124,7 @@ const Loader = ({ file, setFile }) => {
         height: "100%",
         width: "100%",
         background: "#000000f9",
+        zIndex: 500,
       }}
     >
       <div
@@ -130,18 +134,35 @@ const Loader = ({ file, setFile }) => {
           alignItems: `center`,
           alignContent: `center`,
           height: `100%`,
+          zIndex: 750,
         }}
       >
-        <h3
-          style={{
-            margin: `auto`,
-            fontSize: `2.75rem`,
-            fontWeight: 400,
-            color: `#40a530`,
-          }}
-        >
-          Uploading {progress}%
-        </h3>
+        {progress && (
+          <h3
+            style={{
+              margin: `auto`,
+              fontSize: `2rem`,
+              fontWeight: 600,
+              color: `#22da6b`,
+              zIndex: 1000,
+            }}
+          >
+            Uploading {progress}%
+          </h3>
+        )}
+        {error && (
+          <h3
+            style={{
+              margin: `auto`,
+              fontSize: `2rem`,
+              fontWeight: 600,
+              color: `#da2222`,
+              zIndex: 1000,
+            }}
+          >
+            Error: {error}
+          </h3>
+        )}
       </div>
     </motion.div>
   );
