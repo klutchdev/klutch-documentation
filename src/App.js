@@ -86,17 +86,19 @@ const App = () => {
 
               <TextButton
                 type="button"
-                label={user ? "🔥 " + user.displayName : " 👋🏻 Greetings! "}
-                width="100%"
+                label={user ? "🔥 " + user.displayName : "👋🏻 Welcome!"}
+                width="auto"
                 height="3rem"
-                margin="1rem 2rem"
-                letterSpacing="1.3px"
+                margin="1rem auto"
+                letterSpacing="1.25px"
                 padding="0 1.5rem"
                 border="1px dashed #333333"
                 bgColor="#21222b"
                 textColor="#22da6b"
                 disabled={false}
-                onClick={() => {}}
+                onClick={() => {
+                  console.log("Welcome!");
+                }}
               />
               <IconButton
                 type="button"
