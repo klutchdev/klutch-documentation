@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { storage, auth } from "../firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, storage } from "../firebase";
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import { useAuthState } from "klutch-fire-hooks/auth";
 
 const useFirebaseStorage = (file) => {
   const [user] = useAuthState(auth);
@@ -11,13 +12,13 @@ const useFirebaseStorage = (file) => {
 
   const uploadFile = async () => {
     const ext = file.type.split("/")[1];
-    const ref = storage.ref().child(`Avatars/${user.uid}/${Date.now()}.${ext}`);
-    const uploadTask = ref.put(file);
+    const storageRef = ref(storage, `Avatars/${user.uid}/${Date.now()}.${ext}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
       "state_changed",
       (snap) => {
-        let pct = (snap.bytesTransferred / snap.totalBytes).toFixed(2) * 100;
+        let pct = (snap.bytesTransferred / snap.totalBytes) * 100;
         setProgress(pct);
       },
       function (error) {
@@ -25,7 +26,9 @@ const useFirebaseStorage = (file) => {
         alert(error);
       },
       () => {
-        ref.getDownloadURL().then((downloadURL) => setURL(downloadURL));
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
+          setURL(downloadURL)
+        );
       }
     );
   };

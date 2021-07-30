@@ -40,8 +40,8 @@ const TextInput = ({
         justifyContent: "space-evenly",
         outline: "none",
         background: "#03030350",
-        border: border || "1px solid #545759",
-        borderRadius: radius || "4px",
+        border: border || "2px solid #545759",
+        borderRadius: radius || "5px",
         transition: "all 300ms ease",
         boxShadow: shadow || "1px 1px 10px #03030390",
       }}

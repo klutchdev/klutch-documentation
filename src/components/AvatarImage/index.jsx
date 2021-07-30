@@ -4,6 +4,8 @@ import avatarImg from "../../img/avatar.png";
 import { motion } from "framer-motion";
 import useFirebaseStorage from "../../hooks/useFirebaseStorage";
 import { AuthContext } from "../../contexts/AuthContext";
+import { auth } from "../../firebase";
+import { updateProfile } from "firebase/auth";
 const types = ["image/png", "image/jpeg", "image/jpg", "image/gif"];
 
 const AvatarImage = () => {
@@ -40,7 +42,7 @@ const AvatarImage = () => {
       <motion.div
         onClick={user ? handleClick : () => {}}
         style={{
-          margin: "1rem auto",
+          margin: "1rem auto 1rem auto",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -51,13 +53,13 @@ const AvatarImage = () => {
         {user && (
           <img
             style={{
-              margin: "auto",
-              minWidth: "150px",
-              minHeight: "150px",
-              maxWidth: "250px",
-              maxHeight: "250px",
-              width: "200px",
-              height: "200px",
+              margin: "0 auto 0 auto",
+              minWidth: "125px",
+              minHeight: "125px",
+              maxWidth: "200px",
+              maxHeight: "200px",
+              width: "150px",
+              height: "150px",
               borderRadius: "50%",
               boxShadow: "1px 1px 12px #030303aa",
             }}
@@ -69,12 +71,12 @@ const AvatarImage = () => {
           <img
             style={{
               margin: "auto",
-              minWidth: "150px",
-              minHeight: "150px",
-              maxWidth: "250px",
-              maxHeight: "250px",
-              width: "200px",
-              height: "200px",
+              minWidth: "125px",
+              minHeight: "125px",
+              maxWidth: "200px",
+              maxHeight: "200px",
+              width: "150px",
+              height: "150px",
               borderRadius: "50%",
               boxShadow: "1px 1px 12px #030303aa",
             }}
@@ -98,17 +100,16 @@ const AvatarImage = () => {
 };
 
 const Loader = ({ file, setFile }) => {
-  const { user } = useContext(AuthContext);
   const { progress, url, error } = useFirebaseStorage(file);
 
   useEffect(() => {
     if (url) {
       setFile(null);
-      user.updateProfile({ photoURL: url });
+      updateProfile(auth.currentUser, { photoURL: url });
     }
     return () => {
       setFile(null);
-      user.updateProfile({ photoURL: url });
+      updateProfile(auth.currentUser, { photoURL: url });
     };
   }, [url, setFile]);
 

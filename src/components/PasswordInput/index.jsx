@@ -54,7 +54,7 @@ const PasswordInput = ({
           outline: "none",
           background: "#03030350",
           border: border || borderStyle,
-          borderRadius: radius || "4px",
+          borderRadius: radius || "5px",
           transition: "all 300ms ease",
           boxShadow: shadow || "1px 1px 10px #03030390",
         }}

@@ -43,22 +43,22 @@ const FloatingActionButton = ({
         style={{
           position: "fixed",
           bottom: "1rem",
-          right: "1rem",
+          right: "1.5rem",
           zIndex: 500,
-          width: size || "3.25rem",
-          height: size || "3.25rem",
+          width: size || "3.35rem",
+          height: size || "3.35rem",
           padding: padding || "0",
           margin: margin || "auto",
           background: bgColor || "#030303",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          border: "1px dashed #6b6f71",
+          border: expanded ? "1px ridge #e91616" : "1px dashed #333333ee",
           borderRadius: "50%",
           textAlign: "center",
           filter: isHover ? ` brightness(1.2)` : ` brightness(1)`,
-          transition: transition || "all 250ms ease",
-          boxShadow: shadow || "#03030375 1px 1px 15px",
+          transition: transition || "all 750ms 100ms linear",
+          boxShadow: shadow || "#030303cc 1px 1px 26px",
         }}
       >
         <MenuToggle

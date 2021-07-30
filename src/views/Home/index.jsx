@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { lazy, useState } from "react";
 import { motion } from "framer-motion";
 import { FaHome, FaMinus, FaPlus } from "react-icons/fa";
 import { pageVariant, iconVariants } from "../../animations";
+import { useAuthState } from "klutch-fire-hooks/auth";
+import { auth } from "../../firebase";
+const TextButton = lazy(() => import("../../components/TextButton"));
 
 const Home = () => {
+  const [user] = useAuthState(auth);
   const [alertsCollapsed, setAlertsCollapsed] = useState(true);
   const [buttonsCollapsed, setButtonsCollapsed] = useState(true);
   const [inputsCollapsed, setInputsCollapsed] = useState(true);
@@ -19,10 +23,11 @@ const Home = () => {
       animate="visible"
       exit="exit"
     >
-      <Header label="Home" />
-      <hr color="#363636" />
+      {/* <hr color="#363636" /> */}
 
-      <div className="flex column">
+      <div style={{ marginLeft: "0.5rem" }} className="flex column">
+        <Header label="Home" user={user} />
+        <br />
         <SubHeader
           label="Alerts"
           collapsed={alertsCollapsed}
@@ -85,17 +90,41 @@ const Home = () => {
           <LinkTo label="Checkbox" path="/checkbox" />
           <LinkTo label="Burger" path="/menu-toggle" />
         </Group>
+
+        <motion.p
+          onClick={() =>
+            window.open(
+              "https://github.com/klutchdev/klutch-documentation",
+              "_blank"
+            )
+          }
+          style={{
+            position: "fixed",
+            left: "1.75rem",
+            bottom: "1.75rem",
+            color: "#666666",
+            fontFamily: `Montserrat`,
+            margin: "auto auto auto auto",
+            fontWeight: 400,
+            fontSize: "100%",
+            cursor: "default",
+          }}
+        >
+          0.2.1
+        </motion.p>
+
+        <br />
       </div>
     </motion.div>
   );
 };
 
-const Header = ({ label }) => (
+const Header = ({ label, user }) => (
   <div style={{ display: "flex", alignItems: "center" }}>
     <motion.span variants={iconVariants} initial="hidden" animate="visible">
-      <FaHome size="1.75rem" color="#fa8142" />
+      <FaHome size="2rem" color="#fa8142" />
     </motion.span>
-    <motion.h1
+    {/* <motion.h1
       style={{
         textAlign: `left`,
         margin: `auto auto auto 1rem`,
@@ -107,25 +136,25 @@ const Header = ({ label }) => (
       }}
     >
       {label}
-    </motion.h1>
-    <motion.p
-      onClick={() =>
-        window.open(
-          "https://github.com/klutchdev/klutch-documentation",
-          "_blank"
-        )
-      }
-      style={{
-        color: "#fa8142",
-        fontFamily: `Montserrat`,
-        margin: "auto 0.5rem auto auto",
-        fontWeight: 600,
-        fontSize: "100%",
-        cursor: "default",
+    </motion.h1> */}
+    <TextButton
+      type="button"
+      label={user ? "🔥 " + user.displayName : "👋🏻 Welcome!"}
+      width="auto"
+      height="2.5rem"
+      fontSize="90%"
+      fontWeight={400}
+      margin="auto 0 auto auto"
+      letterSpacing="0"
+      padding="0 0.5rem"
+      border="1px dashed #292929"
+      bgColor="#212121"
+      textColor="#666666"
+      disabled={false}
+      onClick={() => {
+        console.log("Welcome!");
       }}
-    >
-      0.2.1
-    </motion.p>
+    />
   </div>
 );
 
@@ -171,6 +200,7 @@ const SubHeader = ({ label, handleClick, collapsed }) => (
     <motion.h3
       style={{
         fontFamily: `Montserrat`,
+        fontSize: "150%",
         padding: "0 0.5rem",
         margin: "auto 0",
         textAlign: "center",

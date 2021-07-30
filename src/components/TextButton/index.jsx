@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState } from "react";
-import { string, func, bool } from "prop-types";
+import { string, func, bool, number } from "prop-types";
 
 const TextButton = ({
   type,
@@ -8,7 +8,6 @@ const TextButton = ({
   width,
   bgColor,
   textColor,
-  linkColor,
   disabled,
   margin,
   padding,
@@ -16,6 +15,8 @@ const TextButton = ({
   border,
   transition,
   shadow,
+  fontWeight,
+  fontSize,
   label,
   hoverLabel,
 }) => {
@@ -55,8 +56,8 @@ const TextButton = ({
           border: border || "none",
           borderRadius: "4px",
           textAlign: "center",
-          fontWeight: 600,
-          fontSize: "1.25rem",
+          fontWeight: fontWeight || 600,
+          fontSize: fontSize || "1.25rem",
           letterSpacing: "1px",
           fontFamily: '"Montserrat", sans-serif',
           filter: disabled ? " brightness(0.9)" : " brightness(1)",
@@ -84,6 +85,7 @@ TextButton.propTypes = {
   padding: string,
   border: string,
   fontSize: string,
+  fontWeight: number,
   transition: string,
   shadow: string,
 };

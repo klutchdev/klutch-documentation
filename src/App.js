@@ -1,14 +1,9 @@
 import React, { lazy, Suspense } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useHistory,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { motion } from "framer-motion";
 import useMedia from "./hooks/useMedia";
-import { auth, googleSignIn } from "./firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, googleSignIn, logOut } from "./firebase";
+import { useAuthState } from "klutch-fire-hooks/auth";
 import { FaGithub, FaSignOutAlt, FaTwitter } from "react-icons/fa";
 import FloatingActionButton from "./components/FloatingActionButton";
 import Home from "./views/Home";
@@ -16,7 +11,6 @@ const MenuDrawer = lazy(() => import("./components/MenuDrawer"));
 const ShowErr = lazy(() => import("./components/ShowErr"));
 const AvatarImage = lazy(() => import("./components/AvatarImage"));
 const IconButton = lazy(() => import("./components/IconButton"));
-const TextButton = lazy(() => import("./components/TextButton"));
 const AvatarPage = lazy(() => import("./views/AvatarPage"));
 const BannerPage = lazy(() => import("./views/BannerPage"));
 const CheckboxPage = lazy(() => import("./views/CheckboxPage"));
@@ -43,40 +37,38 @@ const Loading = () => (
       width: `100vw`,
     }}
   >
-    <h1 style={{ margin: `auto` }}>Loading...</h1>
+    <h1 style={{ margin: `auto`, fontWeight: 500 }}>Loading...</h1>
   </div>
 );
 
 const App = () => {
   const [user, loading, error] = useAuthState(auth);
-  const isDesktop = useMedia("(min-width: 1024px)");
-  const isLandscape = useMedia("(min-width: 480px) and (max-height: 600px)");
+  const isDesktop = useMedia("(min-width: 1080px)");
+  const isLandscape = useMedia("(max-width: 1080px) and (max-height: 600px)");
 
-  const history = useHistory();
-
-  const signOut = async () => {
-    await auth.signOut().then(() => {
-      history.replace("/");
-    });
-  };
+  // const history = useHistory();
 
   if (loading) {
     return <Loading />;
   }
   if (error) {
-    return <ShowErr err={error} />;
+    return <ShowErr err={error.message} />;
   } else {
     return (
       <>
         <FloatingActionButton />
+
         <Suspense fallback={<Loading />}>
           <MenuDrawer
             position="fixed"
+            height={
+              isDesktop ? "calc(100vh)" : isLandscape ? "calc(100vh)" : "100vh"
+            }
             width={
               isDesktop
                 ? "calc(35vw)"
                 : isLandscape
-                ? "calc(50vw)"
+                ? "calc(45vw)"
                 : "calc(70vw)"
             }
           >
@@ -85,69 +77,118 @@ const App = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                justifyContent: "space-between",
-                margin: "1rem auto auto auto ",
+                justifyContent: "space-around",
+                margin: "0.5rem auto 1rem auto",
                 width: "100%",
-                height: "100vh",
+                height: "100%",
               }}
             >
               <AvatarImage />
-              <br />
 
-              <TextButton
-                type="button"
-                label={user ? "🔥 " + user.displayName : "👋🏻 Welcome!"}
-                width="auto"
-                height="3rem"
-                margin="1rem auto"
-                letterSpacing="1.25px"
-                padding="0 1.5rem"
-                border="1px dashed #333333"
-                bgColor="#21222b"
-                textColor="#22da6b"
-                disabled={false}
-                onClick={() => {
-                  console.log("Welcome!");
-                }}
-              />
-              <IconButton
-                type="button"
-                icon={
-                  <FaGithub size="1.5rem" style={{ marginRight: "0.5rem" }} />
-                }
-                label="View on Github"
-                width="auto"
-                margin="1rem auto"
-                bgColor="linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%)"
-                textColor="#000000"
-                fontSize="110%"
-                letterSpacing="0"
-                disabled={false}
-                onClick={() =>
-                  window.open(
-                    "https://github.com/klutchdev/klutch-documentation",
-                    "_blank"
-                  )
-                }
-              />
-              <IconButton
-                type="button"
-                icon={
-                  <FaTwitter size="1.5rem" style={{ marginRight: "0.5rem" }} />
-                }
-                label="@klutchDev"
-                width="auto"
-                margin="1rem auto"
-                letterSpacing="1.25px"
-                bgColor="#0091eb"
-                textColor="#d9d9d9"
-                disabled={false}
-                onClick={() =>
-                  window.open("https://twitter.com/klutchdev", "_blank")
-                }
-              />
+              {isLandscape ? (
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    width: "100%",
+                  }}
+                >
+                  <IconButton
+                    type="button"
+                    icon={
+                      <FaGithub
+                        size="1.5rem"
+                        style={{ marginRight: "0.5rem" }}
+                      />
+                    }
+                    label="Open Github"
+                    width="auto"
+                    height="2.5rem"
+                    margin="0.5rem auto"
+                    bgColor="linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%)"
+                    textColor="#000000"
+                    fontSize="70%"
+                    letterSpacing="0"
+                    disabled={false}
+                    onClick={() =>
+                      window.open(
+                        "https://github.com/klutchdev/klutch-documentation",
+                        "_blank"
+                      )
+                    }
+                  />
+                  <IconButton
+                    type="button"
+                    icon={
+                      <FaTwitter
+                        size="1.5rem"
+                        style={{ marginRight: "0.5rem" }}
+                      />
+                    }
+                    label="@klutchDev"
+                    width="auto"
+                    height="2.5rem"
+                    margin="0.5rem auto"
+                    fontSize="70%"
+                    letterSpacing="1.1px"
+                    bgColor="#0091eb"
+                    textColor="#d9d9d9"
+                    disabled={false}
+                    onClick={() =>
+                      window.open("https://twitter.com/klutchdev", "_blank")
+                    }
+                  />
+                </div>
+              ) : (
+                <>
+                  <IconButton
+                    type="button"
+                    icon={
+                      <FaGithub
+                        size="1.5rem"
+                        style={{ marginRight: "0.5rem" }}
+                      />
+                    }
+                    label="View on Github"
+                    width="auto"
+                    margin="0.5rem"
+                    bgColor="linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%)"
+                    textColor="#000000"
+                    fontSize="110%"
+                    letterSpacing="0"
+                    disabled={false}
+                    onClick={() =>
+                      window.open(
+                        "https://github.com/klutchdev/klutch-documentation",
+                        "_blank"
+                      )
+                    }
+                  />
+                  <IconButton
+                    type="button"
+                    icon={
+                      <FaTwitter
+                        size="1.5rem"
+                        style={{ marginRight: "0.5rem" }}
+                      />
+                    }
+                    label="@klutchDev"
+                    width="auto"
+                    margin="0.5rem auto"
+                    letterSpacing="1.25px"
+                    bgColor="#0091eb"
+                    textColor="#d9d9d9"
+                    disabled={false}
+                    onClick={() =>
+                      window.open("https://twitter.com/klutchdev", "_blank")
+                    }
+                  />
+                </>
+              )}
+
               <Footer />
-              <div style={{ height: "35%", margin: "1rem auto 0.5rem auto" }} />
+              <div style={{ height: "25%", margin: "1rem auto 0.5rem auto" }} />
               {user ? (
                 <IconButton
                   type="button"
@@ -159,21 +200,23 @@ const App = () => {
                     />
                   }
                   width="auto"
+                  height="2.5rem"
                   margin="0 1rem 1rem 1rem"
-                  fontSize="130%"
+                  fontSize="110%"
                   fontWeight={700}
-                  letterSpacing="1.25px"
+                  letterSpacing="1.1px"
                   bgColor="#dc4040"
                   textColor="#030303"
                   disabled={false}
-                  onClick={signOut}
+                  onClick={logOut}
                 />
               ) : (
                 <IconButton
                   type="button"
                   label="Login with Google"
                   width="auto"
-                  margin="0 auto 1rem auto"
+                  height="2.5rem"
+                  margin="0 auto 1rem 1rem"
                   fontSize="110%"
                   fontWeight={700}
                   letterSpacing="0"
@@ -234,7 +277,7 @@ const Footer = () => {
       style={{
         color: "#00bbff",
         fontFamily: `Montserrat`,
-        margin: "auto",
+        margin: "0 auto",
         fontWeight: 600,
         fontSize: "110%",
         cursor: "default",

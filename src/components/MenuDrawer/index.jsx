@@ -19,6 +19,7 @@ const MenuDrawer = ({
   border,
   position,
   width,
+  height,
   children,
 }) => {
   const { expanded } = useContext(MenuContext);
@@ -32,7 +33,7 @@ const MenuDrawer = ({
           position: position || "relative",
           zIndex: 400,
           width: width || "calc(70vw)",
-          height: "calc(100vh)",
+          height: height || "calc(100vh)",
           margin: margin || "0",
           background: background || "linear-gradient(#090909, #111111f6)",
           borderRadius: 0,

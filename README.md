@@ -34,17 +34,26 @@
 | Category    |  Component  | Progress(%) | 
 | ----------- | ----------- | ----------- |
 | Canvas      | Confetti    |   25%       |
-| Inputs      | Color picker|   25%       |
-|             | Tag input   |   25%       |
-|             | Text area   |   25%       |
-| Images      | 16 x 19     |   0%        |
-|             | Masonry grid|   0%        |
-|             | Image modal |   50%       |
-|             | Carousel    |   25%       |
+| Inputs      | Color picker|   10%       |
+|             | Tag input   |   10%       |
+|             | Text area   |   10%       |
+| Images      | 21 x 9      |   0%        |
+|             | 16 x 9      |   0%        |
+|             | 4 x 3       |   0%        |
+|             | 1 x 1       |   0%        |
+|             | Fluid width |   0%        |
+|             | Auto crop   |   0%        |
+|             | Masonry     |   0%        |
+|             | Lightbox    |   0%        |
+|             | Carousel    |   10%       |
+| Indicators  | Tags        |   25%       |
+|             | Badges      |   0%        |
+|             | Loaders     |   0%        |
 | Firebase    | Google Auth |   100%      |
 |             | Storage     |   100%      |
 |             | Firestore   |   0%        |
 |             | Functions   |   0%        |
 | Hooks       | useStorage  |   100%      |
-|             | useQuery    |   25%       |
+|             | useQuery    |   0%        |
 |             | useAuth     |   100%      |
+| ----------- | ----------- | ----------- |

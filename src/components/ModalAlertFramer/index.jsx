@@ -65,7 +65,7 @@ const ModalAlertFramer = ({
               width: width || "calc(90vw)",
               height: height || "calc(25vh)",
               margin: margin || "auto",
-              background: background || "linear-gradient(#303335, #232d32)",
+              background: background || "linear-gradient(#1e2021, #1b2022)",
               borderRadius: radius || "6px",
               border: border,
               display: "flex",
