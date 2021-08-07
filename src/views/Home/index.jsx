@@ -92,12 +92,7 @@ const Home = () => {
         </Group>
 
         <motion.p
-          onClick={() =>
-            window.open(
-              "https://github.com/klutchdev/klutch-documentation",
-              "_blank"
-            )
-          }
+          onClick={() => window.open("https://github.com/klutchdev/klutch-documentation", "_blank")}
           style={{
             position: "fixed",
             left: "1.75rem",
@@ -110,7 +105,7 @@ const Home = () => {
             cursor: "default",
           }}
         >
-          0.2.1
+          0.2.3
         </motion.p>
 
         <br />

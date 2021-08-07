@@ -57,134 +57,134 @@ const App = () => {
   } else {
     return (
       <>
-        <FloatingActionButton />
-        <MenuDrawer
-          position="fixed"
-          height={isDesktop ? "calc(100vh)" : isLandscape ? "calc(100vh)" : "100vh"}
-          width={isDesktop ? "calc(35vw)" : isLandscape ? "calc(45vw)" : "calc(70vw)"}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "space-around",
-              margin: "0.5rem auto 1rem auto",
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <AvatarImage />
-
-            {isLandscape ? (
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "center",
-                  width: "100%",
-                }}
-              >
-                <IconButton
-                  type="button"
-                  icon={<FaGithub size="1.5rem" style={{ marginRight: "0.5rem" }} />}
-                  label="Open Github"
-                  width="auto"
-                  height="2.5rem"
-                  margin="0.5rem auto"
-                  bgColor="linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%)"
-                  textColor="#000000"
-                  fontSize="70%"
-                  letterSpacing="0"
-                  disabled={false}
-                  onClick={() =>
-                    window.open("https://github.com/klutchdev/klutch-documentation", "_blank")
-                  }
-                />
-                <IconButton
-                  type="button"
-                  icon={<FaTwitter size="1.5rem" style={{ marginRight: "0.5rem" }} />}
-                  label="@klutchDev"
-                  width="auto"
-                  height="2.5rem"
-                  margin="0.5rem auto"
-                  fontSize="70%"
-                  letterSpacing="1.1px"
-                  bgColor="#0091eb"
-                  textColor="#d9d9d9"
-                  disabled={false}
-                  onClick={() => window.open("https://twitter.com/klutchdev", "_blank")}
-                />
-              </div>
-            ) : (
-              <>
-                <IconButton
-                  type="button"
-                  icon={<FaGithub size="1.5rem" style={{ marginRight: "0.5rem" }} />}
-                  label="View on Github"
-                  width="auto"
-                  margin="0.5rem"
-                  bgColor="linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%)"
-                  textColor="#000000"
-                  fontSize="110%"
-                  letterSpacing="0"
-                  disabled={false}
-                  onClick={() =>
-                    window.open("https://github.com/klutchdev/klutch-documentation", "_blank")
-                  }
-                />
-                <IconButton
-                  type="button"
-                  icon={<FaTwitter size="1.5rem" style={{ marginRight: "0.5rem" }} />}
-                  label="@klutchDev"
-                  width="auto"
-                  margin="0.5rem auto"
-                  letterSpacing="1.25px"
-                  bgColor="#0091eb"
-                  textColor="#d9d9d9"
-                  disabled={false}
-                  onClick={() => window.open("https://twitter.com/klutchdev", "_blank")}
-                />
-              </>
-            )}
-
-            <Footer />
-            <div style={{ height: "25%", margin: "1rem auto 0.5rem auto" }} />
-            {user ? (
-              <IconButton
-                type="button"
-                label="Sign out"
-                icon={<FaSignOutAlt size="1.5rem" style={{ margin: "auto 0.5rem" }} />}
-                width="auto"
-                height="2.5rem"
-                margin="0 1rem 1rem 1rem"
-                fontSize="110%"
-                fontWeight={700}
-                letterSpacing="1.1px"
-                bgColor="#dc4040"
-                textColor="#030303"
-                disabled={false}
-                onClick={logOut}
-              />
-            ) : (
-              <IconButton
-                type="button"
-                label="Login with Google"
-                width="auto"
-                height="2.5rem"
-                margin="0 auto 1rem 1rem"
-                fontSize="110%"
-                fontWeight={700}
-                letterSpacing="0"
-                bgColor="#dc4040"
-                textColor="#030303"
-                disabled={false}
-                onClick={googleSignIn}
-              />
-            )}
-          </div>
-        </MenuDrawer>
         <Suspense fallback={<Loading />}>
+          <FloatingActionButton />
+          <MenuDrawer
+            position="fixed"
+            height={isDesktop ? "calc(100vh)" : isLandscape ? "calc(100vh)" : "100vh"}
+            width={isDesktop ? "calc(35vw)" : isLandscape ? "calc(45vw)" : "calc(70vw)"}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "space-around",
+                margin: "0.5rem auto 1rem auto",
+                width: "100%",
+                height: "100%",
+              }}
+            >
+              <AvatarImage />
+
+              {isLandscape ? (
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    width: "100%",
+                  }}
+                >
+                  <IconButton
+                    type="button"
+                    icon={<FaGithub size="1.5rem" style={{ marginRight: "0.5rem" }} />}
+                    label="Open Github"
+                    width="auto"
+                    height="2.5rem"
+                    margin="0.5rem auto"
+                    bgColor="linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%)"
+                    textColor="#000000"
+                    fontSize="70%"
+                    letterSpacing="0"
+                    disabled={false}
+                    onClick={() =>
+                      window.open("https://github.com/klutchdev/klutch-documentation", "_blank")
+                    }
+                  />
+                  <IconButton
+                    type="button"
+                    icon={<FaTwitter size="1.5rem" style={{ marginRight: "0.5rem" }} />}
+                    label="@klutchDev"
+                    width="auto"
+                    height="2.5rem"
+                    margin="0.5rem auto"
+                    fontSize="70%"
+                    letterSpacing="1.1px"
+                    bgColor="#0091eb"
+                    textColor="#d9d9d9"
+                    disabled={false}
+                    onClick={() => window.open("https://twitter.com/klutchdev", "_blank")}
+                  />
+                </div>
+              ) : (
+                <>
+                  <IconButton
+                    type="button"
+                    icon={<FaGithub size="1.5rem" style={{ marginRight: "0.5rem" }} />}
+                    label="View on Github"
+                    width="auto"
+                    margin="0.5rem"
+                    bgColor="linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%)"
+                    textColor="#000000"
+                    fontSize="110%"
+                    letterSpacing="0"
+                    disabled={false}
+                    onClick={() =>
+                      window.open("https://github.com/klutchdev/klutch-documentation", "_blank")
+                    }
+                  />
+                  <IconButton
+                    type="button"
+                    icon={<FaTwitter size="1.5rem" style={{ marginRight: "0.5rem" }} />}
+                    label="@klutchDev"
+                    width="auto"
+                    margin="0.5rem auto"
+                    letterSpacing="1.25px"
+                    bgColor="#0091eb"
+                    textColor="#d9d9d9"
+                    disabled={false}
+                    onClick={() => window.open("https://twitter.com/klutchdev", "_blank")}
+                  />
+                </>
+              )}
+
+              <Footer />
+              <div style={{ height: "25%", margin: "1rem auto 0.5rem auto" }} />
+              {user ? (
+                <IconButton
+                  type="button"
+                  label="Sign out"
+                  icon={<FaSignOutAlt size="1.5rem" style={{ margin: "auto 0.5rem" }} />}
+                  width="auto"
+                  height="2.5rem"
+                  margin="0 1rem 1rem 1rem"
+                  fontSize="110%"
+                  fontWeight={700}
+                  letterSpacing="1.1px"
+                  bgColor="#dc4040"
+                  textColor="#030303"
+                  disabled={false}
+                  onClick={logOut}
+                />
+              ) : (
+                <IconButton
+                  type="button"
+                  label="Login with Google"
+                  width="auto"
+                  height="2.5rem"
+                  margin="0 auto 1rem 1rem"
+                  fontSize="110%"
+                  fontWeight={700}
+                  letterSpacing="0"
+                  bgColor="#dc4040"
+                  textColor="#030303"
+                  disabled={false}
+                  onClick={googleSignIn}
+                />
+              )}
+            </div>
+          </MenuDrawer>
           <Router>
             <Switch>
               <Route component={AvatarPage} exact path="/avatar" />
