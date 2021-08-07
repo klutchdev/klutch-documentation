@@ -1,6 +1,14 @@
 import { string, number, func } from "prop-types";
 import { motion } from "framer-motion";
-import { basicVariant } from "../../animations";
+
+const basicVariant = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+};
 
 const TopBanner = ({
   content,
