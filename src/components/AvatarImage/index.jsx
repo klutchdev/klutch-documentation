@@ -1,11 +1,11 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useRef, useState } from "react";
 import avatarImg from "../../img/avatar.png";
 import { motion } from "framer-motion";
-import useFirebaseStorage from "../../hooks/useFirebaseStorage";
-import { AuthContext } from "../../contexts/AuthContext";
 import { auth } from "../../firebase";
 import { updateProfile } from "firebase/auth";
+import useFirebaseStorage from "../../hooks/useFirebaseStorage";
+import { AuthContext } from "../../contexts/AuthContext";
+
 const types = ["image/png", "image/jpeg", "image/jpg", "image/gif"];
 
 const AvatarImage = () => {

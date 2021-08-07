@@ -5,7 +5,7 @@ const useMenu = () => {
 
   const handleExpand = () => setExpanded(!expanded);
 
-  return [expanded, setExpanded, handleExpand];
+  return { expanded, setExpanded, handleExpand };
 };
 
 export default useMenu;

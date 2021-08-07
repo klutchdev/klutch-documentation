@@ -18,7 +18,7 @@ const useFirebaseStorage = (file) => {
     uploadTask.on(
       "state_changed",
       (snap) => {
-        let pct = (snap.bytesTransferred / snap.totalBytes) * 100;
+        let pct = Math.floor((snap.bytesTransferred / snap.totalBytes) * 100);
         setProgress(pct);
       },
       function (error) {
@@ -26,16 +26,16 @@ const useFirebaseStorage = (file) => {
         alert(error);
       },
       () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
-          setURL(downloadURL)
-        );
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => setURL(downloadURL));
       }
     );
   };
 
   useEffect(() => {
     uploadFile(file);
-    return () => uploadFile();
+    return () => {
+      uploadFile();
+    };
   }, [file]);
 
   return { progress, error, url };

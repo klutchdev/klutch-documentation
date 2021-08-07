@@ -3,16 +3,7 @@ import { string, func } from "prop-types";
 import MenuToggle from "../MenuToggle";
 import { MenuContext } from "../../contexts/MenuContext";
 
-const FloatingActionButton = ({
-  onClick,
-  bgColor,
-  textColor,
-  margin,
-  padding,
-  size,
-  transition,
-  shadow,
-}) => {
+const FloatingActionButton = ({ onClick, bgColor, margin, padding, size, transition, shadow }) => {
   const buttonRef = useRef(null);
   const [isHover, setIsHover] = useState(false);
   const { expanded, handleExpand } = useContext(MenuContext);
@@ -31,6 +22,10 @@ const FloatingActionButton = ({
         node.removeEventListener("mouseleave", handleMouseLeave);
       };
     }
+    return () => {
+      node.removeEventListener("mouseenter", handleMouseEnter);
+      node.removeEventListener("mouseleave", handleMouseLeave);
+    };
   }, []);
 
   return (
@@ -61,11 +56,7 @@ const FloatingActionButton = ({
           boxShadow: shadow || "#030303cc 1px 1px 26px",
         }}
       >
-        <MenuToggle
-          color="#6b6f71"
-          expanded={expanded}
-          handleExpand={handleExpand}
-        />
+        <MenuToggle color="#6b6f71" expanded={expanded} handleExpand={handleExpand} />
       </button>
     </div>
   );

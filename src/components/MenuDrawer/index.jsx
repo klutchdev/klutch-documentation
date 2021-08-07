@@ -13,15 +13,7 @@ const drawer = {
   },
 };
 
-const MenuDrawer = ({
-  background,
-  margin,
-  border,
-  position,
-  width,
-  height,
-  children,
-}) => {
+const MenuDrawer = ({ background, margin, border, position, width, height, children }) => {
   const { expanded } = useContext(MenuContext);
   const isLandscape = useMedia("(min-width: 480px) and (max-height: 600px)");
 
